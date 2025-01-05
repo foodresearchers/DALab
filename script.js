@@ -8,17 +8,20 @@ document.addEventListener('DOMContentLoaded', function() {
         rows.forEach(row => {
             const cols = row.split(',');
             if (cols.length < 8) return; // Skip incomplete rows
+
+            const matchString = (str, searchStr) => str.toLowerCase().includes(searchStr.toLowerCase().trim());
+
             const researcher = {
-                name: cols[0].toLowerCase().trim(),
-                id: cols[1],
-                batch: cols[2],
-                email: cols[3],
-                interest: cols[4],
-                designation: cols[5],
-                type: cols[6],
-                img: cols[7].toLowerCase().trim()
+                name: cols[1].toLowerCase().trim(), // Skip timestamp
+                id: cols[2],
+                batch: cols[3],
+                email: cols[4],
+                interest: cols[5],
+                designation: cols[6],
+                type: cols[7].toLowerCase().trim(),
+                img: `images/${cols[1].replace(/\s+/g, '').toLowerCase()}.jpg` // Match image by name
             };
-            
+
             if (!researchers[researcher.batch]) {
                 researchers[researcher.batch] = [];
             }
@@ -28,16 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
         Object.keys(researchers).forEach(batch => {
             const batchGroup = document.createElement('div');
             batchGroup.innerHTML = `<h3>${batch}</h3>`;
-            
-            researchers[batch].forEach(researcher => {
-                // Assume the images are stored with names in lowercase and without spaces
-                const imageName = researcher.name.replace(/\s+/g, '');
-                const imgPath = researcher.img || `images/${imageName}.jpg`;
 
+            researchers[batch].forEach(researcher => {
                 const card = document.createElement('div');
                 card.classList.add('card');
                 card.innerHTML = `
-                    <img src="${imgPath}" alt="${researcher.name}">
+                    <img src="${researcher.img}" alt="${researcher.name}">
                     <h3>${researcher.name}</h3>
                     <p>Designation: ${researcher.designation}</p>
                     <p>ID: ${researcher.id}</p>
@@ -48,9 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 batchGroup.appendChild(card);
             });
 
-            if (researchers[batch][0].type === 'current') {
+            if (researchers[batch][0].type.includes('current')) {
                 document.getElementById('current-researchers').appendChild(batchGroup);
-            } else if (researchers[batch][0].type === 'alumni') {
+            } else if (researchers[batch][0].type.includes('alumni')) {
                 document.getElementById('alumni').appendChild(batchGroup);
             }
         });
