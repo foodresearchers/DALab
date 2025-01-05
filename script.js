@@ -43,3 +43,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(`Creating card for researcher: ${researcher.name}`);
                 const card = document.createElement('div');
                 card.classList.add('card');
+                card.innerHTML = `
+                    ${researcher.img ? `<img src="${researcher.img}" alt="${researcher.name}" onerror="this.style.display='none'">` : ''}
+                    <h3>${researcher.name}</h3>
+                    <p>Designation: ${researcher.designation}</p>
+                    <p>ID: ${researcher.id}</p>
+                    <p>Batch: ${researcher.batch}</p>
+                    <p>Email: ${researcher.email}</p>
+                    <p>Research Interest: ${researcher.interest}</p>
+                `;
+                batchGroup.appendChild(card);
+            });
+
+            if (researchers[batch][0].type.includes('current')) {
+                document.getElementById('current-researchers').appendChild(batchGroup);
+            } else if (researchers[batch][0].type.includes('alumni')) {
+                document.getElementById('alumni').appendChild(batchGroup);
+            }
+        });
+    })
+    .catch(error => console.error('Error fetching the CSV file:', error));
+});
