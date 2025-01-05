@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     fetch('responses.csv')
-    .then(response => response.text())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.text();
+    })
     .then(data => {
         console.log('CSV Data:', data);
         const rows = data.split('\n').slice(1); // Skip header row
@@ -11,13 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (cols.length < 9) return; // Skip incomplete rows
 
             const researcher = {
-                name: cols[1].toLowerCase().trim(), // Name
+                name: cols[1] ? cols[1].toLowerCase().trim() : 'N/A', // Name
                 id: cols[2] || 'N/A', // Student ID
                 batch: cols[3] || 'N/A', // Batch
                 email: cols[4] || 'N/A', // Email
                 interest: cols[5] || 'N/A', // Research interest
                 designation: cols[6] || 'N/A', // Current Designation
-                type: cols[7].toLowerCase().trim(), // Current Researcher or Alumni?
+                type: cols[7] ? cols[7].toLowerCase().trim() : 'N/A', // Current Researcher or Alumni?
                 img: cols[8] ? cols[8].trim() : null // Profile image or null if absent
             };
 
