@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 interest: cols[5],
                 designation: cols[6],
                 type: cols[7].toLowerCase().trim(),
-                img: `images/${cols[1].replace(/\s+/g, '').toLowerCase()}.jpg` // Match image by name
+                img: cols[8] ? cols[8].trim() : `images/${cols[1].replace(/\s+/g, '').toLowerCase()}.jpg` // Match image by name or use provided URL
             };
 
             if (!researchers[researcher.batch]) {
