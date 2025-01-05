@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 interest: cols[5] || 'N/A', // Research interest
                 designation: cols[6] || 'N/A', // Current Designation
                 type: cols[7] ? cols[7].toLowerCase().trim() : 'N/A', // Current Researcher or Alumni?
-                img: cols[8] ? cols[8].trim() : null // Profile image or null if absent
+                img: cols[8] ? `https://drive.google.com/uc?export=view&id=${cols[8].split('id=')[1]}` : null // Extract image ID and convert to viewable link
             };
 
             if (!researchers[researcher.batch]) {
@@ -35,30 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Researchers Object:', researchers);
 
         Object.keys(researchers).forEach(batch => {
+            console.log(`Processing batch: ${batch}`);
             const batchGroup = document.createElement('div');
             batchGroup.innerHTML = `<h3>${batch}</h3>`;
 
             researchers[batch].forEach(researcher => {
+                console.log(`Creating card for researcher: ${researcher.name}`);
                 const card = document.createElement('div');
                 card.classList.add('card');
-                card.innerHTML = `
-                    ${researcher.img ? `<img src="${researcher.img}" alt="${researcher.name}">` : ''}
-                    <h3>${researcher.name}</h3>
-                    <p>Designation: ${researcher.designation}</p>
-                    <p>ID: ${researcher.id}</p>
-                    <p>Batch: ${researcher.batch}</p>
-                    <p>Email: ${researcher.email}</p>
-                    <p>Research Interest: ${researcher.interest}</p>
-                `;
-                batchGroup.appendChild(card);
-            });
-
-            if (researchers[batch][0].type.includes('current')) {
-                document.getElementById('current-researchers').appendChild(batchGroup);
-            } else if (researchers[batch][0].type.includes('alumni')) {
-                document.getElementById('alumni').appendChild(batchGroup);
-            }
-        });
-    })
-    .catch(error => console.error('Error fetching the CSV file:', error));
-});
