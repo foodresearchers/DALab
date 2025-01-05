@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         rows.forEach(row => {
             const cols = row.split(',');
-            if (cols.length < 8) return; // Skip incomplete rows
+            if (cols.length < 9) return; // Skip incomplete rows
 
             const researcher = {
                 name: cols[1].toLowerCase().trim(), // Name
