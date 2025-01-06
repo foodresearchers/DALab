@@ -8,7 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         rows.forEach(row => {
             const cols = row.split(',');
-            if (cols.length < 12) return; // Skip incomplete rows
+            if (cols.length < 12) {
+                console.log('Skipping incomplete row:', row);
+                return; // Skip incomplete rows
+            }
 
             const researcher = {
                 name: cols[1].trim(), // Name
@@ -23,6 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 linkedInAccount: cols[10].trim(), // LinkedIn Account
                 img: `images/researchers/${cols[2].trim()}.jpg` // Fetch image by student ID
             };
+
+            console.log('Researcher:', researcher);
 
             if (researcher.type === 'Current') {
                 if (!currentResearchers[researcher.batch]) {
@@ -61,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p><a href="${researcher.linkedInAccount}" target="_blank">LinkedIn</a></p>
                         <p>${researcher.type}</p>
                     `;
+                    console.log('Card HTML:', card.innerHTML);
                     batchGroup.appendChild(card);
                 });
 
