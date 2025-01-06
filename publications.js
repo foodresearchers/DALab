@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         years[year] = [];
                     }
 
-                    // Extracting title and making it bold
-                    const titleMatch = citation.match(/(?:\. ")([^"]+)"/);
+                    // Extracting the title and making it bold
+                    const titleMatch = citation.match(/^(.*?\.)(.*?)(\. .*)$/);
                     if (titleMatch) {
-                        const boldTitle = `<b>${titleMatch[1]}</b>`;
-                        const updatedCitation = citation.replace(titleMatch[1], boldTitle);
+                        const boldTitle = `<b>${titleMatch[2].trim()}</b>`;
+                        const updatedCitation = `${titleMatch[1]} ${boldTitle}${titleMatch[3]}`;
                         years[year].push(updatedCitation);
                     } else {
                         years[year].push(citation);
