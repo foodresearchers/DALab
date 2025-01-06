@@ -12,6 +12,10 @@ header {
     text-align: center;
 }
 
+h2, h3 {
+    text-align: center;
+}
+
 .message, .card {
     background-color: #fff;
     margin: 20px;
@@ -47,7 +51,7 @@ nav a {
     display: inline-block;
     vertical-align: top;
     width: calc(25% - 40px); /* Adjust width for four cards side by side */
-    text-align: left; /* Align text to the left */
+    text-align: center; /* Center align all card elements */
 }
 
 .card img {
@@ -71,4 +75,8 @@ nav a {
 
 .card a:hover {
     text-decoration: underline;
+}
+
+#current-researchers, #former-researchers {
+    text-align: center;
 }
