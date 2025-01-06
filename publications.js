@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const parts = pub.split('. ');
             if (parts.length > 1) {
                 const citation = parts[1].trim();
-                const yearMatch = citation.match(/, (\d{4})\.$/); // Extracting the year from the citation
+                const yearMatch = citation.match(/\((\d{4})\)/); // Extracting the year from the citation
 
                 if (yearMatch) {
                     const year = yearMatch[1];
@@ -49,6 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
             publicationsList.appendChild(yearHeading);
             publicationsList.appendChild(yearPublications);
         });
+
+        console.log('Publications List HTML:', publicationsList.innerHTML); // Debug log
     })
     .catch(error => console.error('Error fetching the publications file:', error));
 });
