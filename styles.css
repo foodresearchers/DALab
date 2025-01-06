@@ -19,6 +19,12 @@ h1 {
     font-size: 2.5em;
 }
 
+.slogan {
+    margin: 5px 0 20px 0; /* Adjusted margin to position the slogan appropriately */
+    font-size: 1.2em;
+    color: #fff;
+}
+
 h2, h3 {
     text-align: center;
     color: #00509e;
