@@ -46,4 +46,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 batchGroup.innerHTML = `<h3>${batch} Batch</h3>`;
 
                 category[batch].forEach(researcher => {
-                    const card[_{{{CITATION{{{_1{](https://github.com/buribalazs/smooth-drag-order/tree/7b40d21d076c3e31765f61481f537beaf4c5ec9f/README.md)[_{{{CITATION{{{_2{](https://github.com/kayoJr/dr-hibist/tree/c241f017119cd4eadbc2a65b99d3faf7d5b947f1/index.php)
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+                    card.innerHTML = `
+                        <img src="${researcher.imgJPG}" alt="${researcher.name}" onerror="this.onerror=null; this.src='${researcher.imgPNG}';">
+                        <h3>${researcher.name}</h3>
+                        <p><span class="label">Student ID:</span> ${researcher.id}</p>
+                        <p><span class="label">Batch:</span> ${researcher.batch}</p>
+                        <p><span class="label">Email:</span> ${researcher.email}</p>
+                        <p><span class="label">Research Interest:</span> ${researcher.interest}</p>
+                        <p><span class="label">Designation:</span> ${researcher.designation}</p>
+                        <p><span class="label">Publications (Scopus Indexed):</span> ${researcher.publications}</p>
+                        <p><a href="${researcher.scholarAccount}" target="_blank">Google Scholar</a></p>
+                        <p><a href="${researcher.linkedInAccount}" target="_blank">LinkedIn</a></p>
+                    `;
+                    batchGroup.appendChild(card);
+                });
+
+                document.getElementById(containerId).appendChild(batchGroup);
+            });
+        };
+
+        appendResearchers(currentResearchers, 'current-researchers');
+        appendResearchers(formerResearchers, 'former-researchers');
+    })
+    .catch(error => console.error('Error fetching the CSV file:', error));
+});
