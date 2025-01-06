@@ -37,12 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
         sortedYears.forEach(year => {
             const yearHeading = document.createElement('h3');
             yearHeading.textContent = year;
+            yearHeading.style.textAlign = 'left'; // Align year headings to the left
 
             const yearPublications = document.createElement('ul');
 
-            years[year].forEach((citation, index) => {
+            years[year].forEach(citation => {
                 const listItem = document.createElement('li');
-                listItem.textContent = `${index + 1}. ${citation}`;
+                listItem.textContent = citation;
                 yearPublications.appendChild(listItem);
             });
 
