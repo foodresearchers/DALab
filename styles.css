@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #3a7bd5, #00d2ff); /* Modern blue gradient background */
+    background: #f8f9fa; /* Light gray background to introduce more white */
     color: #333;
 }
 
@@ -64,7 +64,7 @@ nav a:hover {
 }
 
 .card-section .card {
-    background-color: #fff;
+    background-color: #fff; /* White background for cards */
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
@@ -86,4 +86,53 @@ nav a:hover {
 }
 
 .card-section .card .label {
-    font
+    font-weight: bold;
+}
+
+.card-section .card a {
+    color: #00509e; /* Dark blue link color */
+    text-decoration: none;
+}
+
+.card-section .card a:hover {
+    text-decoration: underline;
+}
+
+#current-researchers, #former-researchers {
+    text-align: center;
+}
+
+#notices {
+    padding: 20px;
+    text-align: center;
+}
+
+#notice-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#notice-list li {
+    background-color: #fff; /* White background for notices */
+    margin: 10px 0;
+    padding: 20px;
+    font-size: 1.25em;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #fff; /* White background for footer */
+    color: #00509e; /* Dark blue text for footer */
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .card
