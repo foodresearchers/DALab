@@ -69,12 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     card.innerHTML = `
                         ${researcher.img ? `<img src="${researcher.img}" alt="${researcher.name}" onerror="this.style.display='none'">` : ''}
                         <h3>${researcher.name}</h3>
-                        <p>ID: ${researcher.id}</p>
+                        <p>Student ID: ${researcher.id}</p>
                         <p>Batch: ${researcher.batch}</p>
                         <p>Email: ${researcher.email}</p>
                         <p>Research Interest: ${researcher.interest}</p>
                         <p>Designation: ${researcher.designation}</p>
-                        <p>Publications: ${researcher.publications}</p>
+                        <p>Publications (Scopus Indexed): ${researcher.publications}</p>
                         <p><a href="${researcher.scholarAccount}" target="_blank">Google Scholar</a></p>
                         <p><a href="${researcher.linkedInAccount}" target="_blank">LinkedIn</a></p>
                     `;
