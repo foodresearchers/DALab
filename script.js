@@ -17,8 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 interest: cols[5].trim(), // Research interest
                 designation: cols[6].trim(), // Current Designation
                 type: cols[7].trim(), // Current Researcher or Alumni?
-                img: cols[8].trim().includes('https://drive.google.com') ? `https://drive.google.com/uc?export=view&id=${cols[8].split('id=')[1].trim()}` : null // Convert Google Drive link to viewable link
+                img: cols[8].trim() ? `https://drive.google.com/uc?export=view&id=${cols[8].split('id=')[1].trim()}` : null // Convert Google Drive link to viewable link
             };
+
+            console.log('Researcher:', researcher);
 
             if (!batchGroups[researcher.batch]) {
                 batchGroups[researcher.batch] = [];
@@ -45,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p>Designation: ${researcher.designation}</p>
                     <p>${researcher.type}</p>
                 `;
+                console.log('Card HTML:', card.innerHTML);
                 batchGroup.appendChild(card);
             });
 
