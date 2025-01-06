@@ -26,17 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         years[year] = [];
                     }
 
-                    // Extracting the title and making it bold
-                    const titleMatch = citation.match(/(.*?)\. (.*?)\. /);
-                    if (titleMatch) {
-                        const authors = titleMatch[1].trim();
-                        const boldTitle = `<b>${titleMatch[2].trim()}</b>`;
-                        const remainingCitation = citation.slice(titleMatch[0].length).trim();
-                        const updatedCitation = `${authors}. ${boldTitle}. ${remainingCitation}`;
-                        years[year].push(updatedCitation);
-                    } else {
-                        years[year].push(citation);
-                    }
+                    years[year].push(citation);
                 }
             }
         });
@@ -44,3 +34,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const sortedYears = Object.keys(years).sort((a, b) => b - a);
         totalPublications.textContent = publications.length;
 
+        sortedYears.forEach(year => {
+            const yearHeading = document.createElement('h3');
+            yearHeading.textContent = year;
+
+            const yearPublications = document.createElement('ul');
+
+            years[year].forEach(citation => {
+                const listItem = document.createElement('li');
+                listItem.textContent = citation;
+                yearPublications.appendChild(listItem);
+            });
+
+            publicationsList.appendChild(yearHeading);
+            publicationsList.appendChild(yearPublications);
+        });
+    })
+    .catch(error => console.error('Error fetching the publications file:', error));
+});
