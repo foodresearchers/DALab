@@ -54,6 +54,7 @@ nav a {
     border: 2px solid #00509e;
     border-radius: 25px; /* Rounded rectangle buttons */
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
 }
 
 nav a:hover {
@@ -85,45 +86,4 @@ nav a:hover {
 }
 
 .card-section .card .label {
-    font-weight: bold;
-}
-
-.card-section .card a {
-    color: #00509e; /* Dark blue link color */
-    text-decoration: none;
-}
-
-.card-section .card a:hover {
-    text-decoration: underline;
-}
-
-#current-researchers, #former-researchers {
-    text-align: center;
-}
-
-#notices {
-    padding: 20px;
-    text-align: center;
-}
-
-#notice-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-#notice-list li {
-    background-color: #fff;
-    margin: 10px 0;
-    padding: 20px;
-    font-size: 1.25em;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-footer {
-    background-color: #00509e;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-}
+    font
