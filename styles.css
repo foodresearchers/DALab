@@ -22,6 +22,7 @@ h2, h3 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center align all elements within message and card */
 }
 
 .message img, .card img {
@@ -75,6 +76,10 @@ nav a {
 
 .card a:hover {
     text-decoration: underline;
+}
+
+#current-researchers, #former-researchers {
+    text-align: center;
 }
 
 #notices {
