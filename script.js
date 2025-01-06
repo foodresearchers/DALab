@@ -54,6 +54,11 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Former Researchers:', formerResearchers);
 
         const appendResearchers = (category, containerId) => {
+            if (Object.keys(category).length === 0) {
+                console.log(`No researchers found for ${containerId}`);
+                return;
+            }
+
             Object.keys(category).forEach(batch => {
                 const batchGroup = document.createElement('div');
                 batchGroup.innerHTML = `<h3>${batch} Batch</h3>`;
@@ -66,4 +71,24 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3>${researcher.name}</h3>
                         <p>ID: ${researcher.id}</p>
                         <p>Batch: ${researcher.batch}</p>
-                        <p>Email: ${research
+                        <p>Email: ${researcher.email}</p>
+                        <p>Research Interest: ${researcher.interest}</p>
+                        <p>Designation: ${researcher.designation}</p>
+                        <p>Publications: ${researcher.publications}</p>
+                        <p><a href="${researcher.scholarAccount}" target="_blank">Google Scholar</a></p>
+                        <p><a href="${researcher.linkedInAccount}" target="_blank">LinkedIn</a></p>
+                        <p>${researcher.type}</p>
+                    `;
+                    console.log('Card HTML:', card.innerHTML);
+                    batchGroup.appendChild(card);
+                });
+
+                document.getElementById(containerId).appendChild(batchGroup);
+            });
+        };
+
+        appendResearchers(currentResearchers, 'current-researchers');
+        appendResearchers(formerResearchers, 'former-researchers');
+    })
+    .catch(error => console.error('Error fetching the CSV file:', error));
+});
