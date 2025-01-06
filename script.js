@@ -2,32 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('responses.csv')
     .then(response => response.text())
     .then(data => {
-        // Parse CSV while properly handling fields that contain commas
-        const parseCSV = (text) => {
-            const rows = text.trim().split('\n').map(row => {
-                const result = [];
-                let quoted = false, field = '';
-                for (let char of row) {
-                    if (char === '"') {
-                        quoted = !quoted;
-                    } else if (char === ',' && !quoted) {
-                        result.push(field.trim());
-                        field = '';
-                    } else {
-                        field += char;
-                    }
-                }
-                result.push(field.trim());
-                return result;
-            });
-            return rows;
-        };
-
-        const rows = parseCSV(data).slice(1); // Skip the header row
+        const rows = data.split('\n').slice(1); // Skip the header row
         const currentResearchers = {};
         const formerResearchers = {};
 
-        rows.forEach(cols => {
+        rows.forEach(row => {
+            const cols = row.split(',').map(col => col.trim().replace(/^"|"$/g, ''));
             if (cols.length < 12) return; // Skip incomplete rows
 
             const researcher = {
@@ -71,8 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     card.innerHTML = `
                         <img src="${researcher.imgJPG}" alt="${researcher.name}" onerror="this.onerror=null; this.src='${researcher.imgPNG}';">
                         <h3>${researcher.name}</h3>
-                        <p><span class="label">Student ID:</span> ${researcher.id}</p>
-                        <p><span class="label">Batch:</span> ${researcher.batch}</p>
                         <p><span class="label">Email:</span> ${researcher.email}</p>
                         <p><span class="label">Research Interest:</span> ${researcher.interest}</p>
                         <p><span class="label">Designation:</span> ${researcher.designation}</p>
