@@ -63,4 +63,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 const batchGroup = document.createElement('div');
                 batchGroup.innerHTML = `<h3>${batch} Batch</h3>`;
 
-                category[batch].forEach(research
+                category[batch].forEach(researcher => {
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+                    card.innerHTML = `
+                        ${researcher.img ? `<img src="${researcher.img}" alt="${researcher.name}" onerror="this.style.display='none'">` : ''}
+                        <h3>${researcher.name}</h3>
+                        <p>ID: ${researcher.id}</p>
+                        <p>Batch: ${researcher.batch}</p>
+                        <p>Email: ${researcher.email}</p>
+                        <p>Research Interest: ${researcher.interest}</p>
+                        <p>Designation: ${researcher.designation}</p>
+                        <p>Publications: ${researcher.publications}</p>
+                        <p><a href="${researcher.scholarAccount}" target="_blank">Google Scholar</a></p>
+                        <p><a href="${researcher.linkedInAccount}" target="_blank">LinkedIn</a></p>
+                        <p>${researcher.type}</p>
+                    `;
+                    console.log('Card HTML:', card.innerHTML);
+                    batchGroup.appendChild(card);
+                });
+
+                document.getElementById(containerId).appendChild(batchGroup);
+            });
+        };
+
+        appendResearchers(currentResearchers, 'current-researchers');
+        appendResearchers(formerResearchers, 'former-researchers');
+    })
+    .catch(error => console.error('Error fetching the CSV file:', error));
+});
