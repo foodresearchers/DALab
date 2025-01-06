@@ -34,14 +34,13 @@ nav a {
     border-radius: 5px;
 }
 .card {
-    background-color: #fff;
     margin: 10px;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: inline-block;
     vertical-align: top;
-    width: calc(50% - 20px); /* Adjust width for two cards side by side */
+    width: calc(25% - 20px); /* Adjust width for four cards side by side */
 }
 .card img {
     max-width: 100px;
@@ -50,6 +49,9 @@ nav a {
 }
 .card p {
     margin: 5px 0; /* Reduce line gaps */
+}
+.card .label {
+    font-weight: bold;
 }
 .card a {
     color: #0066cc;
