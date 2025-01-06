@@ -2,12 +2,32 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('responses.csv')
     .then(response => response.text())
     .then(data => {
-        const rows = data.split('\n').slice(1); // Skip the header row
+        // Parse CSV while properly handling fields that contain commas
+        const parseCSV = (text) => {
+            const rows = text.trim().split('\n').map(row => {
+                const result = [];
+                let quoted = false, field = '';
+                for (let char of row) {
+                    if (char === '"') {
+                        quoted = !quoted;
+                    } else if (char === ',' && !quoted) {
+                        result.push(field.trim());
+                        field = '';
+                    } else {
+                        field += char;
+                    }
+                }
+                result.push(field.trim());
+                return result;
+            });
+            return rows;
+        };
+
+        const rows = parseCSV(data).slice(1); // Skip the header row
         const currentResearchers = {};
         const formerResearchers = {};
 
-        rows.forEach(row => {
-            const cols = row.split(',').map(col => col.trim().replace(/^"|"$/g, ''));
+        rows.forEach(cols => {
             if (cols.length < 12) return; // Skip incomplete rows
 
             const researcher = {
@@ -65,8 +85,3 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         };
 
-        appendResearchers(currentResearchers, 'current-researchers');
-        appendResearchers(formerResearchers, 'former-researchers');
-    })
-    .catch(error => console.error('Error fetching the CSV file:', error));
-});
