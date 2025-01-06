@@ -1,13 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Document loaded');
+    
     fetch('responses.csv')
-    .then(response => response.text())
+    .then(response => {
+        console.log('Fetching CSV file');
+        return response.text();
+    })
     .then(data => {
+        console.log('CSV file fetched');
         const rows = data.split('\n').slice(1); // Skip the header row
         const currentResearchers = {};
         const formerResearchers = {};
 
         rows.forEach(row => {
             const cols = row.split(',');
+            console.log('Processing row:', cols);
+
             if (cols.length < 12) {
                 console.log('Skipping incomplete row:', row);
                 return; // Skip incomplete rows
@@ -27,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 img: `images/researchers/${cols[2].trim()}.jpg` // Fetch image by student ID
             };
 
-            console.log('Researcher:', researcher);
+            console.log('Researcher object created:', researcher);
 
             if (researcher.type === 'Current') {
                 if (!currentResearchers[researcher.batch]) {
@@ -58,24 +66,4 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3>${researcher.name}</h3>
                         <p>ID: ${researcher.id}</p>
                         <p>Batch: ${researcher.batch}</p>
-                        <p>Email: ${researcher.email}</p>
-                        <p>Research Interest: ${researcher.interest}</p>
-                        <p>Designation: ${researcher.designation}</p>
-                        <p>Publications: ${researcher.publications}</p>
-                        <p><a href="${researcher.scholarAccount}" target="_blank">Google Scholar</a></p>
-                        <p><a href="${researcher.linkedInAccount}" target="_blank">LinkedIn</a></p>
-                        <p>${researcher.type}</p>
-                    `;
-                    console.log('Card HTML:', card.innerHTML);
-                    batchGroup.appendChild(card);
-                });
-
-                document.getElementById(containerId).appendChild(batchGroup);
-            });
-        };
-
-        appendResearchers(currentResearchers, 'current-researchers');
-        appendResearchers(formerResearchers, 'former-researchers');
-    })
-    .catch(error => console.error('Error fetching the CSV file:', error));
-});
+                        <p>Email: ${research
