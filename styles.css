@@ -16,16 +16,16 @@ h2, h3 {
     text-align: center;
 }
 
-.message, .card {
+.message {
     background-color: #fff;
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center align all elements within message and card */
+    text-align: left; /* Ensure messages are left-aligned */
 }
 
-.message img, .card img {
+.message img {
     max-width: 100px;
     border-radius: 50%;
 }
@@ -44,7 +44,9 @@ nav a {
     border-radius: 5px;
 }
 
-.card {
+/* Add a specific class for cards */
+.card-section .card {
+    background-color: #fff;
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
@@ -55,26 +57,26 @@ nav a {
     text-align: center; /* Center align all card elements */
 }
 
-.card img {
+.card-section .card img {
     max-width: 100px;
     border-radius: 50%;
     margin-bottom: 10px;
 }
 
-.card p {
+.card-section .card p {
     margin: 5px 0; /* Reduce line gaps */
 }
 
-.card .label {
+.card-section .card .label {
     font-weight: bold;
 }
 
-.card a {
+.card-section .card a {
     color: #0066cc;
     text-decoration: none;
 }
 
-.card a:hover {
+.card-section .card a:hover {
     text-decoration: underline;
 }
 
