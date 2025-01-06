@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('publications.txt')
+    fetch('publications/publications.txt')
     .then(response => response.text())
     .then(data => {
         const publications = data.split('\n').filter(line => line.trim() !== '');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         publications.forEach(pub => {
             const parts = pub.split('. ');
             const citation = parts[1].trim();
-            const year = citation.match(/\((\d{4})\)\./)[1]; // Extracting the year from the citation
+            const year = citation.match(/, (\d{4})\.$/)[1]; // Extracting the year from the citation
 
             if (!years[year]) {
                 years[year] = [];
