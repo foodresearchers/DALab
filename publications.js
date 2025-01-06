@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
 
                     // Extracting title and making it bold
-                    const titleMatch = citation.match(/(?<=\.\s)([^\.]+)(?=\.\s)/);
+                    const titleMatch = citation.match(/(?:\. ")([^"]+)"/);
                     if (titleMatch) {
                         const boldTitle = `<b>${titleMatch[1]}</b>`;
                         const updatedCitation = citation.replace(titleMatch[1], boldTitle);
