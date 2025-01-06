@@ -95,7 +95,8 @@ nav a {
 #notice-list li {
     background-color: #fff;
     margin: 10px 0;
-    padding: 10px;
+    padding: 20px; /* Increased padding for bigger size */
+    font-size: 1.25em; /* Increased font size */
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
