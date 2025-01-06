@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const appendResearchers = (category, containerId) => {
             Object.keys(category).forEach(batch => {
                 const batchGroup = document.createElement('div');
-                batchGroup.innerHTML = `<h3>${batch}</h3>`;
+                batchGroup.innerHTML = `<h3>${batch} Batch</h3>`;
 
                 category[batch].forEach(researcher => {
                     const card = document.createElement('div');
