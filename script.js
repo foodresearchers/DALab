@@ -85,3 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         };
 
+        appendResearchers(currentResearchers, 'current-researchers');
+        appendResearchers(formerResearchers, 'former-researchers');
+    })
+    .catch(error => console.error('Error fetching the CSV file:', error));
+});
