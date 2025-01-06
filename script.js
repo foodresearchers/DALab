@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 publications: cols[8], // Number of Publications (Scopus Indexed)
                 scholarAccount: cols[9], // Google Scholar Account
                 linkedInAccount: cols[10], // LinkedIn Account
-                img: `images/researchers/${cols[2]}.jpg` // Fetch image by student ID
+                imgJPG: `images/researchers/${cols[2]}.jpg`, // Fetch image by student ID (jpg)
+                imgPNG: `images/researchers/${cols[2]}.png`  // Fetch image by student ID (png)
             };
 
             console.log('Researcher object created:', researcher);
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const card = document.createElement('div');
                     card.classList.add('card');
                     card.innerHTML = `
-                        ${researcher.img ? `<img src="${researcher.img}" alt="${researcher.name}" onerror="this.style.display='none'">` : ''}
+                        <img src="${researcher.imgJPG}" alt="${researcher.name}" onerror="this.onerror=null; this.src='${researcher.imgPNG}'; this.onerror=null; this.style.display='none'">
                         <h3>${researcher.name}</h3>
                         <p><span class="label">Student ID:</span> ${researcher.id}</p>
                         <p><span class="label">Batch:</span> ${researcher.batch}</p>
