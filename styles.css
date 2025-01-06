@@ -121,6 +121,25 @@ nav a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+#publications {
+    padding: 20px;
+    text-align: left;
+}
+
+#publication-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.publication {
+    background-color: #fff; /* White background for publications */
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 footer {
     background: linear-gradient(to right, #00d2ff, #3a7bd5); /* Blue gradient for footer */
     color: #fff;
@@ -144,7 +163,8 @@ footer {
         margin: 3px;
     }
 
-    #notice-list li {
+    #notice-list li,
+    .publication {
         font-size: 1.1em;
         padding: 15px;
     }
@@ -164,7 +184,8 @@ footer {
         margin: 2px;
     }
 
-    #notice-list li {
+    #notice-list li,
+    .publication {
         font-size: 1em;
         padding: 10px;
     }
