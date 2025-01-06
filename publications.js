@@ -9,14 +9,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
         publications.forEach(pub => {
             const parts = pub.split('. ');
-            const citation = parts[1].trim();
-            const year = citation.match(/, (\d{4})\.$/)[1]; // Extracting the year from the citation
+            if (parts.length > 1) {
+                const citation = parts[1].trim();
+                const yearMatch = citation.match(/, (\d{4})\.$/); // Extracting the year from the citation
 
-            if (!years[year]) {
-                years[year] = [];
+                if (yearMatch) {
+                    const year = yearMatch[1];
+
+                    if (!years[year]) {
+                        years[year] = [];
+                    }
+
+                    years[year].push(citation);
+                }
             }
-
-            years[year].push(citation);
         });
 
         const sortedYears = Object.keys(years).sort((a, b) => b - a);
