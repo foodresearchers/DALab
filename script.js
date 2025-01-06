@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 interest: cols[5].trim(), // Research interest
                 designation: cols[6].trim(), // Current Designation
                 type: cols[7].trim(), // Current Researcher or Alumni?
-                img: cols[8] ? `https://drive.google.com/uc?export=view&id=${cols[8].split('id=')[1]}` : null // Extract image ID and convert to viewable link
+                img: cols[8].trim().includes('https://drive.google.com') ? `https://drive.google.com/uc?export=view&id=${cols[8].split('id=')[1].trim()}` : null // Convert Google Drive link to viewable link
             };
 
             if (!batchGroups[researcher.batch]) {
