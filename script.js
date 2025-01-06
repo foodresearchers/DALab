@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${researcher.img ? `<img src="${researcher.img}" alt="${researcher.name}" onerror="this.style.display='none'">` : ''}
                     <h3>${researcher.name}</h3>
                     <p>ID: ${researcher.id}</p>
+                    <p>Batch: ${researcher.batch}</p>
                     <p>Email: ${researcher.email}</p>
                     <p>Research Interest: ${researcher.interest}</p>
                     <p>Designation: ${researcher.designation}</p>
