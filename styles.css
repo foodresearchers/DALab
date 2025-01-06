@@ -24,16 +24,17 @@ h2, h3 {
     color: #00509e;
 }
 
-.message {
+.message, .card, #publications {
     background-color: #fff;
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    max-width: 800px;
+    text-align: left; /* Left-align text for readability */
 }
 
-.message img {
+.message img, .card img {
     max-width: 100px;
     border-radius: 50%;
     display: block;
@@ -63,89 +64,21 @@ nav a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
 }
 
-.card-section .card {
-    background-color: #fff; /* White background for cards */
-    margin: 10px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: inline-block;
-    vertical-align: top;
-    width: calc(25% - 40px);
-    text-align: center;
-}
-
-.card-section .card img {
-    max-width: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.card-section .card p {
-    margin: 5px 0;
-}
-
-.card-section .card .label {
-    font-weight: bold;
-}
-
-.card-section .card a {
-    color: #00509e; /* Dark blue link color */
-    text-decoration: none;
-}
-
-.card-section .card a:hover {
-    text-decoration: underline;
-}
-
-#current-researchers, #former-researchers {
-    text-align: center;
-}
-
-#notices {
-    padding: 20px;
-    text-align: center;
-}
-
-#notice-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-#notice-list li {
-    background-color: #fff; /* White background for notices */
-    margin: 10px 0;
-    padding: 20px;
-    font-size: 1.25em;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#publications {
-    padding: 20px;
-    text-align: left;
-}
-
-#publication-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.publication {
-    background-color: #fff; /* White background for publications */
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 footer {
     background: linear-gradient(to right, #00d2ff, #3a7bd5); /* Blue gradient for footer */
     color: #fff;
     padding: 10px 0;
     text-align: center;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: none; /* Remove default list style */
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
 }
 
 /* Media Queries for Responsive Design */
@@ -163,8 +96,7 @@ footer {
         margin: 3px;
     }
 
-    #notice-list li,
-    .publication {
+    #publications-list li {
         font-size: 1.1em;
         padding: 15px;
     }
@@ -184,8 +116,7 @@ footer {
         margin: 2px;
     }
 
-    #notice-list li,
-    .publication {
+    #publications-list li {
         font-size: 1em;
         padding: 10px;
     }
