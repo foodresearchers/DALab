@@ -1,42 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Document loaded');
-    
     fetch('responses.csv')
-    .then(response => {
-        console.log('Fetching CSV file');
-        return response.text();
-    })
+    .then(response => response.text())
     .then(data => {
-        console.log('CSV file fetched');
         const rows = data.split('\n').slice(1); // Skip the header row
         const currentResearchers = {};
         const formerResearchers = {};
 
         rows.forEach(row => {
             const cols = row.split(',').map(col => col.trim().replace(/^"|"$/g, ''));
-            console.log('Processing row:', cols);
-
-            if (cols.length < 12) {
-                console.log('Skipping incomplete row:', row);
-                return; // Skip incomplete rows
-            }
+            if (cols.length < 12) return; // Skip incomplete rows
 
             const researcher = {
-                name: cols[1], // Name
-                id: cols[2], // Student ID
-                batch: cols[3], // Batch
-                email: cols[4], // Email
-                interest: cols[5], // Research interest
-                type: cols[6], // Current or Former Researcher?
-                designation: cols[7], // Current Designation
-                publications: cols[8], // Number of Publications (Scopus Indexed)
-                scholarAccount: cols[9], // Google Scholar Account
-                linkedInAccount: cols[10], // LinkedIn Account
-                imgJPG: `images/researchers/${cols[2]}.jpg`, // Fetch image by student ID (jpg)
-                imgPNG: `images/researchers/${cols[2]}.png`  // Fetch image by student ID (png)
+                name: cols[1],
+                id: cols[2],
+                batch: cols[3],
+                email: cols[4],
+                interest: cols[5],
+                type: cols[6],
+                designation: cols[7],
+                publications: cols[8],
+                scholarAccount: cols[9],
+                linkedInAccount: cols[10],
+                imgJPG: `images/researchers/${cols[2]}.jpg`,
+                imgPNG: `images/researchers/${cols[2]}.png`
             };
-
-            console.log('Researcher object created:', researcher);
 
             if (researcher.type === 'Current') {
                 if (!currentResearchers[researcher.batch]) {
@@ -51,44 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        console.log('Current Researchers:', currentResearchers);
-        console.log('Former Researchers:', formerResearchers);
-
         const appendResearchers = (category, containerId) => {
-            if (Object.keys(category).length === 0) {
-                console.log(`No researchers found for ${containerId}`);
-                return;
-            }
+            if (!category || Object.keys(category).length === 0) return;
 
             Object.keys(category).forEach(batch => {
                 const batchGroup = document.createElement('div');
                 batchGroup.innerHTML = `<h3>${batch} Batch</h3>`;
 
                 category[batch].forEach(researcher => {
-                    const card = document.createElement('div');
-                    card.classList.add('card');
-                    card.innerHTML = `
-                        <img src="${researcher.imgJPG}" alt="${researcher.name}" onerror="this.onerror=null; this.src='${researcher.imgPNG}'; this.onerror=null; this.style.display='none'">
-                        <h3>${researcher.name}</h3>
-                        <p><span class="label">Student ID:</span> ${researcher.id}</p>
-                        <p><span class="label">Batch:</span> ${researcher.batch}</p>
-                        <p><span class="label">Email:</span> ${researcher.email}</p>
-                        <p><span class="label">Research Interest:</span> ${researcher.interest}</p>
-                        <p><span class="label">Designation:</span> ${researcher.designation}</p>
-                        <p><span class="label">Publications (Scopus Indexed):</span> ${researcher.publications}</p>
-                        <p><a href="${researcher.scholarAccount}" target="_blank">Google Scholar</a></p>
-                        <p><a href="${researcher.linkedInAccount}" target="_blank">LinkedIn</a></p>
-                    `;
-                    console.log('Card HTML:', card.innerHTML);
-                    batchGroup.appendChild(card);
-                });
-
-                document.getElementById(containerId).appendChild(batchGroup);
-            });
-        };
-
-        appendResearchers(currentResearchers, 'current-researchers');
-        appendResearchers(formerResearchers, 'former-researchers');
-    })
-    .catch(error => console.error('Error fetching the CSV file:', error));
-});
+                    const card[_{{{CITATION{{{_1{](https://github.com/buribalazs/smooth-drag-order/tree/7b40d21d076c3e31765f61481f537beaf4c5ec9f/README.md)[_{{{CITATION{{{_2{](https://github.com/kayoJr/dr-hibist/tree/c241f017119cd4eadbc2a65b99d3faf7d5b947f1/index.php)
