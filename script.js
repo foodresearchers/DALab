@@ -17,10 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 interest: cols[5].trim(), // Research interest
                 designation: cols[6].trim(), // Current Designation
                 type: cols[7].trim(), // Current Researcher or Alumni?
-                img: cols[8].trim() ? `https://drive.google.com/uc?export=view&id=${cols[8].split('id=')[1].trim()}` : null // Convert Google Drive link to viewable link
+                img: `images/researchers/${cols[1].toLowerCase().replace(/\s+/g, '_')}.jpg` // Fetch image by name, replacing spaces with underscores
             };
-
-            console.log('Researcher:', researcher);
 
             if (!batchGroups[researcher.batch]) {
                 batchGroups[researcher.batch] = [];
