@@ -2,32 +2,40 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f8f9fa; /* Updated background color */
 }
 
 header {
-    background-color: #333;
+    background-color: #4CAF50; /* Updated header color */
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 0; /* Increased padding */
     text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
 }
 
 h2, h3 {
     text-align: center;
+    color: #333;
 }
 
 .message {
     background-color: #fff;
-    margin: 20px;
+    margin: 20px auto; /* Center align messages */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Ensure messages are left-aligned */
+    max-width: 600px; /* Added max-width for better layout */
 }
 
 .message img {
     max-width: 100px;
     border-radius: 50%;
+    display: block;
+    margin: 10px auto; /* Center align image */
 }
 
 nav {
@@ -42,9 +50,13 @@ nav a {
     color: #fff;
     background-color: #333;
     border-radius: 5px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-/* Add a specific class for cards */
+nav a:hover {
+    background-color: #555; /* Hover effect for navigation links */
+}
+
 .card-section .card {
     background-color: #fff;
     margin: 10px;
@@ -72,7 +84,7 @@ nav a {
 }
 
 .card-section .card a {
-    color: #0066cc;
+    color: #4CAF50; /* Updated link color */
     text-decoration: none;
 }
 
