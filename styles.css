@@ -2,15 +2,16 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #00c6ff, #0072ff); /* Blue gradient background */
+    background: linear-gradient(to right, #3a7bd5, #00d2ff); /* Modern blue gradient background */
     color: #333;
 }
 
 header {
-    background-color: #004080; /* Dark blue header */
+    background-color: #00509e; /* Darker blue header */
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -20,7 +21,7 @@ h1 {
 
 h2, h3 {
     text-align: center;
-    color: #004080;
+    color: #00509e;
 }
 
 .message {
@@ -28,7 +29,7 @@ h2, h3 {
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
 }
 
@@ -48,16 +49,17 @@ nav a {
     padding: 10px 20px;
     margin: 5px;
     text-decoration: none;
-    color: #0072ff; /* Blue text */
+    color: #00509e; /* Blue text */
     background-color: #fff; /* White background */
-    border: 2px solid #0072ff;
-    border-radius: 20px; /* Rounded rectangle buttons */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+    border: 2px solid #00509e;
+    border-radius: 25px; /* Rounded rectangle buttons */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #0072ff; /* Blue background on hover */
+    background-color: #00509e; /* Blue background on hover */
     color: #fff; /* White text on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
 }
 
 .card-section .card {
@@ -65,7 +67,7 @@ nav a:hover {
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: inline-block;
     vertical-align: top;
     width: calc(25% - 40px);
@@ -87,7 +89,7 @@ nav a:hover {
 }
 
 .card-section .card a {
-    color: #004080; /* Dark blue link color */
+    color: #00509e; /* Dark blue link color */
     text-decoration: none;
 }
 
@@ -115,12 +117,13 @@ nav a:hover {
     padding: 20px;
     font-size: 1.25em;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 footer {
-    background-color: #004080;
+    background-color: #00509e;
     color: #fff;
     padding: 10px 0;
     text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
