@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p>Publications: ${researcher.publications}</p>
                         <p><a href="${researcher.scholarAccount}" target="_blank">Google Scholar</a></p>
                         <p><a href="${researcher.linkedInAccount}" target="_blank">LinkedIn</a></p>
-                        <p>${researcher.type}</p>
                     `;
                     console.log('Card HTML:', card.innerHTML);
                     batchGroup.appendChild(card);
