@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
         const publications = data.split('\n').filter(line => line.trim() !== '');
         const years = {};
+        const uniqueCitations = new Set();
 
         publications.forEach(pub => {
             const parts = pub.split('. ');
@@ -26,14 +27,18 @@ document.addEventListener('DOMContentLoaded', function() {
                         years[year] = [];
                     }
 
-                    // Splitting the citation to identify and bold the title
-                    const titleMatch = citation.match(/.*?\.\s(.*?)\.\s/);
+                    // Extracting the title and making it bold
+                    const titleMatch = citation.match(/(.*?)\.\s(.*?)\.\s/);
                     if (titleMatch) {
-                        const authors = citation.split(')')[0] + ')';
-                        const boldTitle = `<b>${titleMatch[1]}</b>`;
-                        const rest = citation.split(titleMatch[1] + '. ')[1];
-                        const updatedCitation = `${authors} ${boldTitle}. ${rest}`;
-                        years[year].push(updatedCitation);
+                        const authors = titleMatch[1].trim();
+                        const boldTitle = `<b>${titleMatch[2].trim()}</b>`;
+                        const updatedCitation = `${authors}. ${boldTitle}. ${citation.replace(titleMatch[0], '')}`;
+
+                        // Check for duplicates
+                        if (!uniqueCitations.has(updatedCitation)) {
+                            uniqueCitations.add(updatedCitation);
+                            years[year].push(updatedCitation);
+                        }
                     } else {
                         years[year].push(citation);
                     }
@@ -44,21 +49,3 @@ document.addEventListener('DOMContentLoaded', function() {
         const sortedYears = Object.keys(years).sort((a, b) => b - a);
         totalPublications.textContent = publications.length;
 
-        sortedYears.forEach(year => {
-            const yearHeading = document.createElement('h3');
-            yearHeading.textContent = year;
-
-            const yearPublications = document.createElement('ul');
-
-            years[year].forEach(citation => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = citation; // Using innerHTML to include bold tags
-                yearPublications.appendChild(listItem);
-            });
-
-            publicationsList.appendChild(yearHeading);
-            publicationsList.appendChild(yearPublications);
-        });
-    })
-    .catch(error => console.error('Error fetching the publications file:', error));
-});
