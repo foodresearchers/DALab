@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         sortedYears.forEach(year => {
             const yearHeading = document.createElement('h3');
             yearHeading.textContent = year;
-            yearHeading.style.textAlign = 'left'; // Align year headings to the left
 
             const yearPublications = document.createElement('ul');
 
