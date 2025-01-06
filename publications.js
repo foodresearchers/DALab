@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         publications.forEach(pub => {
             const parts = pub.split('. ');
             if (parts.length > 1) {
-                const citation = parts[1].trim();
+                const citation = parts.slice(1).join('. ').trim();
                 const yearMatch = citation.match(/\((\d{4})\)/); // Extracting the year from the citation
 
                 if (yearMatch) {
