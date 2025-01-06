@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 interest: cols[5].trim(), // Research interest
                 designation: cols[6].trim(), // Current Designation
                 type: cols[7].trim().toLowerCase(), // Current Researcher or Alumni?
-                img: `images/researchers/${cols[1].toLowerCase().replace(/\s+/g, '_')}.jpg` // Fetch image by name, replacing spaces with underscores
+                img: `images/researchers/${cols[2].trim()}.jpg` // Fetch image by student ID
             };
 
             if (researcher.type.includes('current')) {
