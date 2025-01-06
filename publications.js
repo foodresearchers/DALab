@@ -27,10 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
 
                     // Extracting the title and making it bold
-                    const titleMatch = citation.match(/^(.*?\.)(.*?)(\. .*)$/);
+                    const titleMatch = citation.match(/^(.*?)\.\s(.*?)\.\s/);
                     if (titleMatch) {
+                        const authors = titleMatch[1].trim();
                         const boldTitle = `<b>${titleMatch[2].trim()}</b>`;
-                        const updatedCitation = `${titleMatch[1]} ${boldTitle}${titleMatch[3]}`;
+                        const updatedCitation = `${authors}. ${boldTitle}. ${citation.replace(titleMatch[0], '')}`;
                         years[year].push(updatedCitation);
                     } else {
                         years[year].push(citation);
