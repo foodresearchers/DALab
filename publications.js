@@ -26,12 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         years[year] = [];
                     }
 
-                    // Extracting the title and making it bold
-                    const titleMatch = citation.match(/^(.*?)\.\s(.*?)\.\s/);
+                    // Splitting the citation to identify and bold the title
+                    const titleMatch = citation.match(/.*?\.\s(.*?)\.\s/);
                     if (titleMatch) {
-                        const authors = titleMatch[1].trim();
-                        const boldTitle = `<b>${titleMatch[2].trim()}</b>`;
-                        const updatedCitation = `${authors}. ${boldTitle}. ${citation.replace(titleMatch[0], '')}`;
+                        const authors = citation.split(')')[0] + ')';
+                        const boldTitle = `<b>${titleMatch[1]}</b>`;
+                        const rest = citation.split(titleMatch[1] + '. ')[1];
+                        const updatedCitation = `${authors} ${boldTitle}. ${rest}`;
                         years[year].push(updatedCitation);
                     } else {
                         years[year].push(citation);
