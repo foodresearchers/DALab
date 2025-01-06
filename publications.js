@@ -26,7 +26,15 @@ document.addEventListener('DOMContentLoaded', function() {
                         years[year] = [];
                     }
 
-                    years[year].push(citation);
+                    // Extracting title and making it bold
+                    const titleMatch = citation.match(/"\s*([^"]+)\s*"/);
+                    if (titleMatch) {
+                        const boldTitle = `<b>"${titleMatch[1]}"</b>`;
+                        const updatedCitation = citation.replace(`"${titleMatch[1]}"`, boldTitle);
+                        years[year].push(updatedCitation);
+                    } else {
+                        years[year].push(citation);
+                    }
                 }
             }
         });
@@ -42,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             years[year].forEach(citation => {
                 const listItem = document.createElement('li');
-                listItem.textContent = citation;
+                listItem.innerHTML = citation; // Using innerHTML to include bold tags
                 yearPublications.appendChild(listItem);
             });
 
