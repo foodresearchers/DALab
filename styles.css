@@ -77,6 +77,20 @@ nav a {
     text-decoration: underline;
 }
 
-#current-researchers, #former-researchers {
+#notices {
+    padding: 20px;
     text-align: center;
+}
+
+#notice-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#notice-list li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
