@@ -50,3 +50,10 @@ nav a {
     border-radius: 50%;
     margin-bottom: 10px;
 }
+.card a {
+    color: #0066cc;
+    text-decoration: none;
+}
+.card a:hover {
+    text-decoration: underline;
+}
