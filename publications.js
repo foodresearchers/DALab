@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
         const publications = data.split('\n').filter(line => line.trim() !== '');
         const years = {};
-        const uniqueCitations = new Set();
 
         publications.forEach(pub => {
             const parts = pub.split('. ');
@@ -28,17 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
 
                     // Extracting the title and making it bold
-                    const titleMatch = citation.match(/(.*?)\.\s(.*?)\.\s/);
+                    const titleMatch = citation.match(/(.*?)\. (.*?)\. /);
                     if (titleMatch) {
                         const authors = titleMatch[1].trim();
                         const boldTitle = `<b>${titleMatch[2].trim()}</b>`;
-                        const updatedCitation = `${authors}. ${boldTitle}. ${citation.replace(titleMatch[0], '')}`;
-
-                        // Check for duplicates
-                        if (!uniqueCitations.has(updatedCitation)) {
-                            uniqueCitations.add(updatedCitation);
-                            years[year].push(updatedCitation);
-                        }
+                        const remainingCitation = citation.slice(titleMatch[0].length).trim();
+                        const updatedCitation = `${authors}. ${boldTitle}. ${remainingCitation}`;
+                        years[year].push(updatedCitation);
                     } else {
                         years[year].push(citation);
                     }
