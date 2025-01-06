@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Reverse the order to display newest notices first
         notices.reverse().forEach((notice, index) => {
+            // Remove the leading number and any leading spaces
+            const cleanNotice = notice.replace(/^\d+\.\s*/, '');
             const listItem = document.createElement('li');
-            listItem.textContent = `${notices.length - index}. ${notice}`;
+            listItem.textContent = cleanNotice;
             noticeList.appendChild(listItem);
         });
     })
