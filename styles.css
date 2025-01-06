@@ -68,4 +68,104 @@ nav a:hover {
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    vertical-align: top;
+    width: calc(25% - 40px);
+    text-align: center;
+}
+
+.card-section .card img {
+    max-width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.card-section .card p {
+    margin: 5px 0;
+}
+
+.card-section .card .label {
+    font-weight: bold;
+}
+
+.card-section .card a {
+    color: #00509e; /* Dark blue link color */
+    text-decoration: none;
+}
+
+.card-section .card a:hover {
+    text-decoration: underline;
+}
+
+#current-researchers, #former-researchers {
+    text-align: center;
+}
+
+#notices {
+    padding: 20px;
+    text-align: center;
+}
+
+#notice-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#notice-list li {
+    background-color: #fff; /* White background for notices */
+    margin: 10px 0;
+    padding: 20px;
+    font-size: 1.25em;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background: linear-gradient(to right, #00d2ff, #3a7bd5); /* Blue gradient for footer */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .card-section .card {
+        width: calc(50% - 20px); /* Two cards per row */
+    }
+
+    nav a {
+        padding: 8px 15px;
+        margin: 3px;
+    }
+
+    #notice-list li {
+        font-size: 1.1em;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .card-section .card {
+        width: calc(100% - 20px); /* One card per row */
+    }
+
+    nav a {
+        padding: 6px 10px;
+        margin: 2px;
+    }
+
+    #notice-list li {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
