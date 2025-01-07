@@ -71,23 +71,19 @@ header nav a:hover {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    transition: opacity 3s ease-in-out;
-    animation: fadeHeroImages 24s infinite, scrollHeroImages 24s infinite linear;
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
 }
 
 .hero-image.image-1 {
     background-image: url('images/hero1.jpg');
-    animation-delay: 0s;
 }
 
 .hero-image.image-2 {
     background-image: url('images/hero2.jpg');
-    animation-delay: 8s;
 }
 
 .hero-image.image-3 {
     background-image: url('images/hero3.jpg');
-    animation-delay: 16s;
 }
 
 .hero-content {
@@ -124,24 +120,51 @@ header nav a:hover {
     background-color: #00509e;
 }
 
+.hero-navigation {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-navigation .nav-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero-navigation .nav-dot.active {
+    background-color: #00d2ff;
+}
+
+/* Ripple effect for images */
 @keyframes fadeHeroImages {
     0% {
         opacity: 0;
+        transform: scale(1.1);
     }
-    33.33% {
+    10% {
         opacity: 1;
+        transform: scale(1);
     }
-    66.66% {
+    30% {
         opacity: 1;
+        transform: scale(1);
+    }
+    40% {
+        opacity: 0;
+        transform: scale(1.1);
     }
     100% {
         opacity: 0;
+        transform: scale(1.1);
     }
-}
-
-@keyframes scrollHeroImages {
-    0% {transform: translateX(100%);}
-    100% {transform: translateX(-100%);}
 }
 
 /* Content Sections */
