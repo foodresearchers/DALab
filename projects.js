@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     fetch('projects/projects.csv')
-        .then(response => {
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.text();
-        })
+        .then(response => response.text())
         .then(data => {
             const parseCSV = (text) => {
                 const rows = text.trim().split('\n').map(row => {
@@ -50,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const projectDiv = document.createElement('div');
                 projectDiv.classList.add('project');
                 projectDiv.innerHTML = `
-                    <img src="${project.image}" alt="${project.title}" onerror="this.src='projects/images/default.jpg'; console.error('Image not found: ${project.image}');">
+                    <img src="${project.image}" alt="${project.title}" onerror="this.src='projects/images/default.jpg';">
                     <div class="project-info">
                         <h4>${project.title}</h4>
                         <p>${project.description}</p>
@@ -69,32 +66,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Load researcher data (assuming researcher data is available)
                 fetch('responses.csv')
-                    .then(response => {
-                        if (!response.ok) throw new Error('Network response was not ok');
-                        return response.text();
-                    })
+                    .then(response => response.text())
                     .then(data => {
                         const rows = parseCSV(data).slice(1); // Skip the header row
                         rows.forEach(researcherCols => {
                             if (researcherCols[2] === project.studentId) {
                                 const researcherCard = document.getElementById(`researcher-${project.studentId}`);
-                                researcherCard.innerHTML = `
-                                    <div class="card">
-                                        <img src="images/researchers/${researcherCols[2]}.jpg" alt="${researcherCols[1]}" onerror="this.onerror=null; this.src='images/researchers/default.png'; console.error('Image not found: images/researchers/${researcherCols[2]}.jpg');">
-                                        <h3>${researcherCols[1]}</h3>
-                                        <p><span class="label">Email:</span> ${researcherCols[4]}</p>
-                                        <p><span class="label">Research Interest:</span> ${researcherCols[5]}</p>
-                                        <p><span class="label">Designation:</span> ${researcherCols[7]}</p>
-                                        <p><span class="label">Publications (Scopus Indexed):</span> ${researcherCols[8]}</p>
-                                        <p><a href="${researcherCols[9]}" target="_blank">Google Scholar</a></p>
-                                        <p><a href="${researcherCols[10]}" target="_blank">LinkedIn</a></p>
-                                    </div>
-                                `;
+                                if (researcherCard) {
+                                    researcherCard.innerHTML = `
+                                        <div class="card">
+                                            <img src="images/researchers/${researcherCols[2]}.jpg" alt="${researcherCols[1]}" onerror="this.onerror=null; this.src='images/researchers/default.png';">
+                                            <h3>${researcherCols[1]}</h3>
+                                            <p><span class="label">Email:</span> ${researcherCols[4]}</p>
+                                            <p><span class="label">Research Interest:</span> ${researcherCols[5]}</p>
+                                            <p><span class="label">Designation:</span> ${researcherCols[7]}</p>
+                                            <p><span class="label">Publications (Scopus Indexed):</span> ${researcherCols[8]}</p>
+                                            <p><a href="${researcherCols[9]}" target="_blank">Google Scholar</a></p>
+                                            <p><a href="${researcherCols[10]}" target="_blank">LinkedIn</a></p>
+                                        </div>
+                                    `;
+                                }
                             }
                         });
                     })
-                    .catch(error => console.error('Error fetching the CSV file:', error));
+                    .catch(error => console.error('Error fetching researcher data:', error));
             });
         })
-        .catch(error => console.error('Error fetching the CSV file:', error));
+        .catch(error => console.error('Error fetching project data:', error));
 });
