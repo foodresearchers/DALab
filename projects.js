@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const projectDiv = document.createElement('div');
                 projectDiv.classList.add('project');
                 projectDiv.innerHTML = `
-                    <img src="${project.image}" alt="${project.title}" onerror="handleImageError(this);">
+                    <img src="${project.image}" alt="${project.title}" onerror="this.onerror=null; this.src='projects/images/default.jpg';">
                     <div class="project-info">
                         <h4>${project.title}</h4>
                         <p>${project.description}</p>
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 if (researcherCard) {
                                     researcherCard.innerHTML = `
                                         <div class="card">
-                                            <img src="images/researchers/${researcherCols[2]}.jpg" alt="${researcherCols[1]}" onerror="handleImageError(this);">
+                                            <img src="images/researchers/${researcherCols[2]}.jpg" alt="${researcherCols[1]}" onerror="this.onerror=null; this.src='images/researchers/default.png';">
                                             <h3>${researcherCols[1]}</h3>
                                             <p><span class="label">Email:</span> ${researcherCols[4]}</p>
                                             <p><span class="label">Research Interest:</span> ${researcherCols[5]}</p>
@@ -96,10 +96,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function handleImageError(image) {
-    if (image.src.includes('default.jpg')) {
-        console.error('Default image not found:', image.src);
-        image.src = ''; // Ensure the loop breaks by setting src to empty
-    } else {
+    if (!image.src.endsWith('default.jpg')) {
         image.src = 'projects/images/default.jpg';
+    } else {
+        console.error('Default image not found, breaking loop.');
+        image.src = ''; // Ensure the loop breaks by setting src to empty
     }
 }
