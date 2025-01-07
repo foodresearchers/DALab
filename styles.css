@@ -23,6 +23,12 @@ header h1 {
     color: #fff;
 }
 
+header .slogan {
+    color: #fff; /* Change slogan color to white */
+    margin: 0;
+    font-size: 1.5em;
+}
+
 header nav {
     margin-top: 10px;
 }
@@ -54,7 +60,6 @@ header nav a:hover {
     height: 100%;
     background: rgba(0, 0, 0, 0.3); /* Slight overlay to dampen images */
     z-index: 0;
-    animation: scrollHeroImages 15s infinite linear;
 }
 
 .hero-image {
@@ -66,8 +71,8 @@ header nav a:hover {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    transition: opacity 2s ease-in-out;
-    animation: fadeHeroImages 18s infinite;
+    transition: opacity 3s ease-in-out;
+    animation: fadeHeroImages 24s infinite, scrollHeroImages 24s infinite linear;
 }
 
 .hero-image.image-1 {
@@ -77,12 +82,12 @@ header nav a:hover {
 
 .hero-image.image-2 {
     background-image: url('images/hero2.jpg');
-    animation-delay: 6s;
+    animation-delay: 8s;
 }
 
 .hero-image.image-3 {
     background-image: url('images/hero3.jpg');
-    animation-delay: 12s;
+    animation-delay: 16s;
 }
 
 .hero-content {
@@ -135,8 +140,8 @@ header nav a:hover {
 }
 
 @keyframes scrollHeroImages {
-    0% {background-position: 0 0;}
-    100% {background-position: 0 -100%;}
+    0% {transform: translateX(100%);}
+    100% {transform: translateX(-100%);}
 }
 
 /* Content Sections */
