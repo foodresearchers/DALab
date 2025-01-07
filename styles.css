@@ -84,13 +84,14 @@ h2, h3 {
     color: #00509e;
 }
 
-.message {
-    background-color: #fff;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
+/* Reset styles for sections to avoid card-like appearance */
+.message, #publications, #notice-list li {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: none;
     text-align: left;
 }
 
@@ -99,16 +100,6 @@ h2, h3 {
     border-radius: 50%;
     display: block;
     margin: 10px auto;
-}
-
-#publications {
-    background-color: #fff;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    text-align: left;
 }
 
 #notices {
@@ -122,12 +113,8 @@ h2, h3 {
 }
 
 #notice-list li {
-    background-color: #fff;
-    margin: 10px 0;
-    padding: 20px;
     font-size: 1.25em;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
 /* Footer Section */
