@@ -17,13 +17,20 @@
         </nav>
     </header>
     <section class="hero">
-        <div class="hero-image image-1"></div>
-        <div class="hero-image image-2"></div>
-        <div class="hero-image image-3"></div>
+        <div class="hero-overlay">
+            <div class="hero-image image-1"></div>
+            <div class="hero-image image-2"></div>
+            <div class="hero-image image-3"></div>
+        </div>
         <div class="hero-content">
             <h2>Welcome to Our Lab</h2>
             <p>Exploring the future of food research</p>
             <button class="cta-button">Learn More</button>
+        </div>
+        <div class="hero-navigation">
+            <span class="nav-dot" onclick="showSlide(0)"></span>
+            <span class="nav-dot" onclick="showSlide(1)"></span>
+            <span class="nav-dot" onclick="showSlide(2)"></span>
         </div>
     </section>
     <section class="message">
@@ -44,5 +51,6 @@
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
