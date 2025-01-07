@@ -4,6 +4,7 @@ body {
     padding: 0;
     background: #f8f9fa;
     color: #333;
+    scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
 /* Header Section */
@@ -183,6 +184,41 @@ section {
 h2, h3 {
     color: #00509e;
     text-align: center; /* Keep headings centered */
+}
+
+/* About Us Section */
+.about-us {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Contact Us Section */
+.contact-us {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.contact-us p {
+    margin: 10px 0;
+}
+
+.contact-us a {
+    color: #00509e;
+    text-decoration: none;
+}
+
+.contact-us a:hover {
+    text-decoration: underline;
 }
 
 /* Specific styles for the message section */
