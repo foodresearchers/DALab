@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Fetch researchers data and display cards
     fetch('responses.csv')
     .then(response => response.text())
     .then(data => {
-        // Parse CSV while properly handling fields that contain commas
         const parseCSV = (text) => {
             const rows = text.trim().split('\n').map(row => {
                 const result = [];
@@ -87,6 +87,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
         appendResearchers(currentResearchers, 'current-researchers');
         appendResearchers(formerResearchers, 'former-researchers');
+    })
+    .catch(error => console.error('Error fetching the CSV file:', error));
+
+    // Fetch notices data and display cards
+    fetch('notices.csv')
+    .then(response => response.text())
+    .then(data => {
+        const parseCSV = (text) => {
+            const rows = text.trim().split('\n').map(row => {
+                const result = [];
+                let quoted = false, field = '';
+                for (let char of row) {
+                    if (char === '"') {
+                        quoted = !quoted;
+                    } else if (char === ',' && !quoted) {
+                        result.push(field.trim());
+                        field = '';
+                    } else {
+                        field += char;
+                    }
+                }
+                result.push(field.trim());
+                return result;
+            });
+            return rows;
+        };
+
+        const rows = parseCSV(data).slice(1); // Skip the header row
+
+        const appendNotices = (notices, containerId) => {
+            if (!notices || notices.length === 0) return;
+
+            notices.forEach(notice => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.innerHTML = `
+                    <h3>${notice[0]}</h3>
+                    <p>${notice[1]}</p>
+                `;
+                document.getElementById(containerId).appendChild(card);
+            });
+        };
+
+        appendNotices(rows, 'notices');
     })
     .catch(error => console.error('Error fetching the CSV file:', error));
 });
