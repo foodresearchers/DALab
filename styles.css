@@ -81,7 +81,7 @@ section {
 
 h2, h3 {
     color: #00509e;
-    text-align: center; /* Retain centered alignment for other sections */
+    text-align: center; /* Keep headings centered */
 }
 
 /* Specific styles for the message section */
