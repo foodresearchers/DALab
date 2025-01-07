@@ -37,18 +37,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     publisher: cols[4],
                     doi: cols[5],
                     studentId: cols[6],
+                    timestamp: cols[7],
                     image: `projects/images/${cols[1]}.jpg`
                 };
 
                 const projectDiv = document.createElement('div');
                 projectDiv.classList.add('project');
                 projectDiv.innerHTML = `
-                    <img src="${project.image}" alt="${project.title}">
+                    <img src="${project.image}" alt="${project.title}" onerror="this.src='projects/images/default.jpg';">
                     <div class="project-info">
                         <h4>${project.title}</h4>
                         <p>${project.description}</p>
                         <p>Publisher: ${project.publisher}</p>
                         <p><a href="${project.doi}" target="_blank">DOI</a></p>
+                        <p>Timestamp: ${project.timestamp}</p>
                     </div>
                     <div class="researcher-card" id="researcher-${project.studentId}"></div>
                 `;
@@ -69,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 const researcherCard = document.getElementById(`researcher-${project.studentId}`);
                                 researcherCard.innerHTML = `
                                     <div class="card">
-                                        <img src="images/researchers/${researcherCols[2]}.jpg" alt="${researcherCols[1]}" onerror="this.onerror=null; this.src='images/researchers/${researcherCols[2]}.png';">
+                                        <img src="images/researchers/${researcherCols[2]}.jpg" alt="${researcherCols[1]}" onerror="this.onerror=null; this.src='images/researchers/default.png';">
                                         <h3>${researcherCols[1]}</h3>
                                         <p><span class="label">Email:</span> ${researcherCols[4]}</p>
                                         <p><span class="label">Research Interest:</span> ${researcherCols[5]}</p>
