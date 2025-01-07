@@ -31,6 +31,9 @@ header .slogan {
 
 header nav {
     margin-top: 10px;
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    padding-left: 20px;
 }
 
 header nav a {
@@ -38,11 +41,15 @@ header nav a {
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
-    transition: color 0.3s;
+    padding: 10px 15px; /* Add padding for a modern look */
+    background: rgba(255, 255, 255, 0.1); /* Add a slight background */
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
 }
 
 header nav a:hover {
-    color: #00d2ff; /* Light blue on hover */
+    background: rgba(255, 255, 255, 0.3); /* Light blue on hover */
+    color: #00509e; /* Blue text on hover */
 }
 
 /* Hero Section */
@@ -229,14 +236,21 @@ h2, h3 {
 
 /* Footer Section */
 footer {
-    background: #333;
-    color: #fff;
+    background: #282828; /* Modern dark grey background */
+    color: #b0b0b0; /* Light grey text */
     padding: 40px 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer p {
+    margin: 10px 0;
 }
 
 footer a {
-    color: #fff;
+    color: #b0b0b0;
     text-decoration: none;
     margin: 0 10px;
     transition: color 0.3s ease;
