@@ -54,7 +54,7 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    background: url('path/to/your/image.jpg') no-repeat center center;
+    background: url('images/hero.jpg') no-repeat center center;
     background-size: cover;
     padding: 100px 20px;
     text-align: center;
