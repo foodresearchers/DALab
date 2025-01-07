@@ -1,30 +1,77 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f8f9fa; /* Light gray background to introduce more white */
+    background: #f8f9fa; /* Light gray background */
     color: #333;
 }
 
+/* Header Section */
 header {
-    background: linear-gradient(to right, #3a7bd5, #00d2ff); /* Modern blue gradient background */
-    color: #fff;
+    background: #fff; /* White background for header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-h1 {
+header h1 {
     margin: 0;
     font-size: 2.5em;
+    color: #00509e;
 }
 
 .slogan {
-    margin: 5px 0 20px 0; /* Adjusted margin to position the slogan appropriately */
+    margin: 5px 0 20px 0;
     font-size: 1.2em;
+    color: #007bff;
+}
+
+nav {
+    text-align: center;
+    margin: 20px 0;
+}
+
+nav a {
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #00509e;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #00509e;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero {
+    background: url('path/to/your/image.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 100px 20px;
+    text-align: center;
     color: #fff;
 }
 
+.hero h2 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+/* Content Sections */
 h2, h3 {
     text-align: center;
     color: #00509e;
@@ -37,7 +84,7 @@ h2, h3 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-    text-align: left; /* Left-align text for readability */
+    text-align: left;
 }
 
 .message img, .card img {
@@ -47,38 +94,15 @@ h2, h3 {
     margin: 10px auto;
 }
 
-nav {
-    text-align: center;
-    margin: 20px 0;
-}
-
-nav a {
-    padding: 10px 20px;
-    margin: 5px;
-    text-decoration: none;
-    color: #00509e; /* Blue text */
-    background-color: #fff; /* White background */
-    border: 2px solid #00509e;
-    border-radius: 25px; /* Rounded rectangle buttons */
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    display: inline-block;
-}
-
-nav a:hover {
-    background-color: #00509e; /* Blue background on hover */
-    color: #fff; /* White text on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
-}
-
 .card-section .card {
-    background-color: #fff; /* White background for cards */
+    background-color: #fff;
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: inline-block;
     vertical-align: top;
-    width: calc(25% - 40px);
+    width: calc(25% - 20px);
     text-align: center;
 }
 
@@ -97,7 +121,7 @@ nav a:hover {
 }
 
 .card-section .card a {
-    color: #00509e; /* Dark blue link color */
+    color: #00509e;
     text-decoration: none;
 }
 
@@ -115,12 +139,12 @@ nav a:hover {
 }
 
 #notice-list {
-    list-style-type: none; /* Remove default list style */
+    list-style-type: none;
     padding: 0;
 }
 
 #notice-list li {
-    background-color: #fff; /* White background for notices */
+    background-color: #fff;
     margin: 10px 0;
     padding: 20px;
     font-size: 1.25em;
@@ -128,22 +152,23 @@ nav a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Footer Section */
 footer {
-    background: linear-gradient(to right, #00d2ff, #3a7bd5); /* Blue gradient for footer */
+    background: #333;
     color: #fff;
-    padding: 5px 0; /* Reduced padding */
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 0.8em; /* Smaller font size */
 }
 
-ul {
-    list-style-type: none; /* Remove default list style */
-    padding: 0;
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
 }
 
-ul li {
-    margin: 10px 0;
+footer a:hover {
+    color: #007bff;
 }
 
 /* Media Queries for Responsive Design */
@@ -153,7 +178,7 @@ ul li {
     }
 
     .card-section .card {
-        width: calc(50% - 20px); /* Two cards per row */
+        width: calc(50% - 20px);
     }
 
     nav a {
@@ -173,7 +198,7 @@ ul li {
     }
 
     .card-section .card {
-        width: calc(100% - 20px); /* One card per row */
+        width: calc(100% - 20px);
     }
 
     nav a {
