@@ -1,3 +1,7 @@
+.card-section {
+    text-align: center;
+}
+
 .card-section .card {
     background-color: #fff;
     margin: 10px;
@@ -31,4 +35,17 @@
 
 .card-section .card a:hover {
     text-decoration: underline;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    .card-section .card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card-section .card {
+        width: calc(100% - 20px);
+    }
 }
