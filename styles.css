@@ -46,6 +46,17 @@ header nav a:hover {
     overflow: hidden;
 }
 
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Slight overlay to dampen images */
+    z-index: 0;
+    animation: scrollHeroImages 15s infinite linear;
+}
+
 .hero-image {
     position: absolute;
     top: 0;
@@ -121,6 +132,11 @@ header nav a:hover {
     100% {
         opacity: 0;
     }
+}
+
+@keyframes scrollHeroImages {
+    0% {background-position: 0 0;}
+    100% {background-position: 0 -100%;}
 }
 
 /* Content Sections */
