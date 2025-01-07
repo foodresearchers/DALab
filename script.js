@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
         showSlide(slideIndex);
     }
 
+    // Add event listeners to dots for changing slides
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showSlide(index));
+    });
+
     showSlide(slideIndex);
     setInterval(nextSlide, 8000);
 
