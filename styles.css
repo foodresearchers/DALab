@@ -43,7 +43,7 @@ header nav a:hover {
 .hero {
     background: url('images/hero.jpg') no-repeat center center;
     background-size: cover;
-    padding: px 20px;
+    padding: 150px 20px;
     text-align: center;
     color: #fff;
 }
@@ -92,7 +92,6 @@ h2, h3 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-    text-align: left; /* Align text to the left */
     display: flex;
     align-items: center;
 }
