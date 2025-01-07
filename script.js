@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Fetch researchers data and display cards
     fetch('responses.csv')
     .then(response => response.text())
     .then(data => {
+        // Parse CSV while properly handling fields that contain commas
         const parseCSV = (text) => {
             const rows = text.trim().split('\n').map(row => {
                 const result = [];

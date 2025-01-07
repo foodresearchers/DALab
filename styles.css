@@ -8,7 +8,7 @@ body {
 
 /* Header Section */
 header {
-    background: #00509e;
+    background: #00509e; /* Blue background */
     padding: 20px 0;
     text-align: center;
     position: sticky;
@@ -36,7 +36,7 @@ header nav a {
 }
 
 header nav a:hover {
-    color: #00d2ff;
+    color: #00d2ff; /* Light blue on hover */
 }
 
 /* Hero Section */
@@ -84,7 +84,7 @@ h2, h3 {
     color: #00509e;
 }
 
-.message {
+.message, .card, #publications {
     background-color: #fff;
     margin: 20px auto;
     padding: 20px;
@@ -94,15 +94,14 @@ h2, h3 {
     text-align: left;
 }
 
-.message img {
+.message img, .card img {
     max-width: 100px;
     border-radius: 50%;
     display: block;
     margin: 10px auto;
 }
 
-/* Card Layout for Researchers and Notices Pages */
-#current-researchers .card, #former-researchers .card, #notices .card {
+.card-section .card {
     background-color: #fff;
     margin: 10px;
     padding: 20px;
@@ -114,27 +113,50 @@ h2, h3 {
     text-align: center;
 }
 
-.card img {
+.card-section .card img {
     max-width: 100px;
     border-radius: 50%;
     margin-bottom: 10px;
 }
 
-.card p {
+.card-section .card p {
     margin: 5px 0;
 }
 
-.card .label {
+.card-section .card .label {
     font-weight: bold;
 }
 
-.card a {
+.card-section .card a {
     color: #00509e;
     text-decoration: none;
 }
 
-.card a:hover {
+.card-section .card a:hover {
     text-decoration: underline;
+}
+
+#current-researchers, #former-researchers {
+    text-align: center;
+}
+
+#notices {
+    padding: 20px;
+    text-align: center;
+}
+
+#notice-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#notice-list li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 20px;
+    font-size: 1.25em;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer Section */
@@ -162,13 +184,18 @@ footer a:hover {
         font-size: 2em;
     }
 
-    .card {
+    .card-section .card {
         width: calc(50% - 20px);
     }
 
     nav a {
         padding: 8px 15px;
         margin: 3px;
+    }
+
+    #publications-list li {
+        font-size: 1.1em;
+        padding: 15px;
     }
 }
 
@@ -177,12 +204,17 @@ footer a:hover {
         font-size: 1.5em;
     }
 
-    .card {
+    .card-section .card {
         width: calc(100% - 20px);
     }
 
     nav a {
         padding: 6px 10px;
         margin: 2px;
+    }
+
+    #publications-list li {
+        font-size: 1em;
+        padding: 10px;
     }
 }
