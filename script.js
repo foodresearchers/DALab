@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Function to handle hero image transitions
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".hero-image");
+    const dots = document.querySelectorAll(".nav-dot");
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.opacity = i === index ? '1' : '0';
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        slideIndex = index;
+    }
+
+    function nextSlide() {
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
+    }
+
+    showSlide(slideIndex);
+    setInterval(nextSlide, 8000);
+
+    // Function to load researchers from CSV
     fetch('responses.csv')
     .then(response => response.text())
     .then(data => {
