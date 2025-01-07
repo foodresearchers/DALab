@@ -26,7 +26,7 @@ header h1 {
 header .slogan {
     color: #fff; /* Change slogan color to white */
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1em; /* Reduce font size */
 }
 
 header nav {
@@ -58,7 +58,7 @@ header nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Slight overlay to dampen images */
+    background: rgba(0, 0, 0, 0.5); /* Increase dampening of images */
     z-index: 0;
 }
 
@@ -71,7 +71,7 @@ header nav a:hover {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .hero-image.image-1 {
@@ -99,8 +99,8 @@ header nav a:hover {
     margin: 0;
 }
 
-.hero p {
-    font-size: 1.5em;
+.hero .slogan {
+    font-size: 1em; /* Reduced font size */
     margin-top: 20px;
 }
 
@@ -143,28 +143,27 @@ header nav a:hover {
     background-color: #00d2ff;
 }
 
-/* Ripple effect for images */
-@keyframes fadeHeroImages {
-    0% {
-        opacity: 0;
-        transform: scale(1.1);
-    }
-    10% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    30% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    40% {
-        opacity: 0;
-        transform: scale(1.1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1.1);
-    }
+/* Slide effect for images */
+.hero-image {
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.hero-image.active {
+    left: 0;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hero-image.previous {
+    left: -100%;
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.hero-image.next {
+    left: 100%;
+    opacity: 0;
+    transform: translateX(100%);
 }
 
 /* Content Sections */
