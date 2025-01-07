@@ -6,7 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showSlide(index) {
         slides.forEach((slide, i) => {
-            slide.style.opacity = i === index ? '1' : '0';
+            slide.classList.remove('active', 'previous', 'next');
+            if (i === index) {
+                slide.classList.add('active');
+            } else if (i === (index - 1 + slides.length) % slides.length) {
+                slide.classList.add('previous');
+            } else if (i === (index + 1) % slides.length) {
+                slide.classList.add('next');
+            }
         });
         dots.forEach((dot, i) => {
             dot.classList.toggle('active', i === index);
