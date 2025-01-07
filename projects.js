@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     fetch('projects/projects.csv')
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.text();
+        })
         .then(data => {
             const parseCSV = (text) => {
                 const rows = text.trim().split('\n').map(row => {
@@ -27,24 +30,27 @@ document.addEventListener('DOMContentLoaded', function() {
             const finishedProjects = document.getElementById('finished-projects');
 
             rows.forEach(cols => {
-                if (cols.length < 8) return; // Skip incomplete rows
+                if (cols.length < 9) {
+                    console.error('Incomplete row:', cols);
+                    return; // Skip incomplete rows
+                }
 
                 const project = {
-                    title: cols[0],
-                    productName: cols[1],
-                    description: cols[2],
-                    status: cols[3],
-                    publisher: cols[4],
-                    doi: cols[5],
-                    studentId: cols[6],
-                    timestamp: cols[7],
-                    image: `projects/images/${cols[1]}.jpg`
+                    timestamp: cols[0],
+                    title: cols[1],
+                    productName: cols[2],
+                    description: cols[3],
+                    status: cols[4],
+                    publisher: cols[5],
+                    doi: cols[6],
+                    studentId: cols[7],
+                    image: `projects/images/${cols[8]}`
                 };
 
                 const projectDiv = document.createElement('div');
                 projectDiv.classList.add('project');
                 projectDiv.innerHTML = `
-                    <img src="${project.image}" alt="${project.title}" onerror="this.src='projects/images/default.jpg';">
+                    <img src="${project.image}" alt="${project.title}" onerror="this.src='projects/images/default.jpg'; console.error('Image not found: ${project.image}');">
                     <div class="project-info">
                         <h4>${project.title}</h4>
                         <p>${project.description}</p>
@@ -63,7 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Load researcher data (assuming researcher data is available)
                 fetch('responses.csv')
-                    .then(response => response.text())
+                    .then(response => {
+                        if (!response.ok) throw new Error('Network response was not ok');
+                        return response.text();
+                    })
                     .then(data => {
                         const rows = parseCSV(data).slice(1); // Skip the header row
                         rows.forEach(researcherCols => {
@@ -71,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 const researcherCard = document.getElementById(`researcher-${project.studentId}`);
                                 researcherCard.innerHTML = `
                                     <div class="card">
-                                        <img src="images/researchers/${researcherCols[2]}.jpg" alt="${researcherCols[1]}" onerror="this.onerror=null; this.src='images/researchers/default.png';">
+                                        <img src="images/researchers/${researcherCols[2]}.jpg" alt="${researcherCols[1]}" onerror="this.onerror=null; this.src='images/researchers/default.png'; console.error('Image not found: images/researchers/${researcherCols[2]}.jpg');">
                                         <h3>${researcherCols[1]}</h3>
                                         <p><span class="label">Email:</span> ${researcherCols[4]}</p>
                                         <p><span class="label">Research Interest:</span> ${researcherCols[5]}</p>
