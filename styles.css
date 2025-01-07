@@ -42,13 +42,15 @@ header nav a {
     margin: 0 15px;
     font-weight: bold;
     padding: 10px 15px; /* Add padding for a modern look */
-    background: rgba(255, 255, 255, 0.1); /* Add a slight background */
+    background: #00509e; /* Match the header background */
+    border: 2px solid transparent;
     border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 
 header nav a:hover {
-    background: rgba(255, 255, 255, 0.3); /* Light blue on hover */
+    background: #fff; /* White background on hover */
+    border-color: #00509e; /* Blue border on hover */
     color: #00509e; /* Blue text on hover */
 }
 
@@ -236,7 +238,7 @@ h2, h3 {
 
 /* Footer Section */
 footer {
-    background: #282828; /* Modern dark grey background */
+    background: #004080; /* Darker blue to match the theme */
     color: #b0b0b0; /* Light grey text */
     padding: 40px 20px;
     text-align: center;
