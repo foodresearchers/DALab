@@ -1,3 +1,4 @@
+// Function to toggle the mobile menu
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
     navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
@@ -32,12 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
             showSlide(slideIndex);
         }
 
-        // Mobile Menu Toggle
-        const hamburger = document.querySelector('.hamburger');
-        if (hamburger) {
-            hamburger.addEventListener('click', toggleMenu);
-        }
-
         // Add event listeners to dots for changing slides
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => showSlide(index));
@@ -45,6 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         showSlide(slideIndex);
         setInterval(nextSlide, 8000);
+    }
+
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
     }
 
     // Researchers loading logic (for researchers page)
