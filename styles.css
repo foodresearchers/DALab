@@ -297,13 +297,6 @@ footer a {
 footer a:hover {
     color: #00d2ff;
 }
-/* Center Button Styles */
-.button-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto; /* Center the button horizontally and add margin for spacing */
-}
 
 /* Update Info Button Styles (for researchers page) */
 .update-info-container {
