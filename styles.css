@@ -253,6 +253,7 @@ h2, h3 {
     text-align: center; /* Keep publications centered */
 }
 
+/* Notices Section */
 #notices {
     padding: 20px;
     text-align: center;
@@ -298,6 +299,31 @@ footer a:hover {
     color: #00d2ff;
 }
 
+/* Update Info Button Styles (for researchers page) */
+.update-info-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+}
+
+.update-info-button {
+    background-color: #00509e;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.update-info-button:hover {
+    background-color: #00d2ff;
+}
+
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 768px) {
     h1 {
@@ -312,6 +338,10 @@ footer a:hover {
     #publications-list li {
         font-size: 1.1em;
         padding: 15px;
+    }
+
+       .card-section .card {
+        width: calc(50% - 20px);
     }
 }
 
@@ -328,5 +358,9 @@ footer a:hover {
     #publications-list li {
         font-size: 1em;
         padding: 10px;
+    }
+
+    .card-section .card {
+        width: calc(100% - 20px);
     }
 }
