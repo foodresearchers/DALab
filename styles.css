@@ -30,10 +30,22 @@ header .slogan {
     font-size: 1em; /* Reduce font size */
 }
 
-header nav {
-    margin-top: 10px;
+.nav-container {
     display: flex;
-    justify-content: center; /* Center-align the nav */
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
 }
 
 header nav a {
@@ -52,6 +64,27 @@ header nav a:hover {
     background: #fff; /* White background on hover */
     border-color: #00509e; /* Blue border on hover */
     color: #00509e; /* Blue text on hover */
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        background-color: #00509e;
+    }
+
+    .nav-links a {
+        padding: 10px 20px;
+        border-top: 1px solid #fff;
+    }
+
+    .hamburger {
+        display: block;
+    }
 }
 
 /* Hero Section */
@@ -322,6 +355,7 @@ footer a:hover {
 .update-info-button:hover {
     background-color: #00d2ff;
 }
+
 .nav-container {
     display: flex;
     align-items: center;
@@ -334,12 +368,6 @@ footer a:hover {
     font-size: 2em;
     cursor: pointer;
 }
-
-.nav-links {
-    display: flex;
-    justify-content: center;
-}
-
 
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 768px) {
@@ -357,26 +385,27 @@ footer a:hover {
         padding: 15px;
     }
 
-       .card-section .card {
+    .card-section .card {
         width: calc(50% - 20px);
     }
+
     .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    width: 100%;
-    background-color: #00509e;
-}
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        background-color: #00509e;
+    }
 
-.nav-links a {
-    padding: 10px 20px;
-    border-top: 1px solid #fff;
-}
+    .nav-links a {
+        padding: 10px 20px;
+        border-top: 1px solid #fff;
+    }
 
-.hamburger {
-    display: block;
-}
+    .hamburger {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 480px) {
