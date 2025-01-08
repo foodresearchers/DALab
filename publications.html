@@ -9,15 +9,18 @@
 <body>
     <header>
         <h1>Publications</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="researchers.html">Researchers</a>
-            <a href="notices.html">Notices</a>
-            <a href="publications.html">Publications</a>
-            <a href="projects.html">Projects</a>
-            <a href="index.html#about-us">About Us</a> 
-            <a href="index.html#contact-us">Contact Us</a>
-        </nav>
+        <div class="nav-container">
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="researchers.html">Researchers</a>
+                <a href="notices.html">Notices</a>
+                <a href="publications.html">Publications</a>
+                <a href="projects.html">Projects</a>
+                <a href="index.html#about-us">About Us</a>
+                <a href="index.html#contact-us">Contact Us</a>
+            </nav>
+        </div>
     </header>
     <section id="publications">
         <h2>Total Publications: <span id="total-publications">0</span></h2>
@@ -27,5 +30,6 @@
         <p>&copy; 2025 Dr. Ahmed Lab. All rights reserved.</p>
     </footer>
     <script src="publications.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
