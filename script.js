@@ -2,8 +2,15 @@
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
     console.log("Toggle menu clicked"); // Debugging statement
+    console.log("Current display style:", navLinks.style.display); // Debugging statement
     // Toggle the display property between 'flex' and 'none'
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+        console.log("Nav links hidden"); // Debugging statement
+    } else {
+        navLinks.style.display = 'flex';
+        console.log("Nav links shown"); // Debugging statement
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
