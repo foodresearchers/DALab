@@ -1,6 +1,7 @@
 // Function to toggle the mobile menu
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
+    console.log("Toggle menu clicked"); // Debugging statement
     // Toggle the display property between 'flex' and 'none'
     navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
 }
