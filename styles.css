@@ -346,6 +346,7 @@ footer a:hover {
         left: 0;
         background-color: #00509e;
         border: 2px solid red; /* Temporary border for debugging */
+        z-index: 1000; /* Ensure it is on top of other elements */
     }
 
     .nav-links a {
@@ -362,7 +363,16 @@ footer a:hover {
     h1 {
         font-size: 1.5em;
     }
-
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Below the header */
+        left: 0;
+        background-color: #00509e;
+        border: 2px solid red; /* Temporary border for debugging */
+        z-index: 1000; /* Ensure it is on top of other elements */
+    }
     nav a {
         padding: 6px 10px;
         margin: 2px;
