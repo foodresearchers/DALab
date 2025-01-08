@@ -1,3 +1,8 @@
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Hero image transitions (for homepage)
     if (document.querySelector('.hero-image')) {
