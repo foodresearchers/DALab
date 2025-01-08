@@ -1,10 +1,10 @@
+/* General styles */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background: #f8f9fa;
     color: #333;
-    scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
 /* Header Section */
@@ -18,29 +18,17 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    color: #fff;
-}
-
-header .slogan {
-    color: #fff; /* Change slogan color to white */
-    margin: 0;
-    font-size: 1em; /* Reduce font size */
-}
-
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center alignment for desktop mode */
-    padding: 10px 20px;
+    justify-content: space-between; /* Align items properly */
+    padding: 0 20px;
 }
 
 .hamburger {
-    display: none;
     font-size: 2em;
     cursor: pointer;
+    display: none; /* Hide by default */
 }
 
 .nav-links {
@@ -48,25 +36,72 @@ header .slogan {
     justify-content: center;
 }
 
-header nav a {
+.nav-links a {
     color: #fff;
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
-    padding: 10px 15px; /* Add padding for a modern look */
+    padding: 10px 15px;
     background: #00509e; /* Match the header background */
     border: 2px solid transparent;
     border-radius: 5px;
     transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 
-header nav a:hover {
+.nav-links a:hover {
     background: #fff; /* White background on hover */
     border-color: #00509e; /* Blue border on hover */
     color: #00509e; /* Blue text on hover */
 }
 
-/* Hero Section */
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide the nav links by default */
+        flex-direction: column;
+        width: 100%; /* Full width */
+        position: absolute;
+        top: 60px; /* Below the header */
+        left: 0;
+        background-color: #00509e;
+        z-index: 1000; /* Ensure it is on top of other elements */
+    }
+
+    .nav-links a {
+        border-top: 1px solid #fff;
+        padding: 10px 20px;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger menu icon */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    nav a {
+        padding: 6px 10px;
+        margin: 2px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Below the header */
+        left: 0;
+        background-color: #00509e;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger menu icon */
+    }
+}
+
+/* Additional styles for other sections */
 .hero {
     position: relative;
     height: 60vh;
@@ -333,60 +368,4 @@ footer a:hover {
 
 .update-info-button:hover {
     background-color: #00d2ff;
-}
-
-/* Media Queries for Responsive Design */
-@media screen and (max-width: 768px) {
-   .nav-container .nav-links {
-    display: flex !important;
-    flex-direction: column;
-    width: 100%; /* Full width */
-    position: absolute;
-    top: 60px; /* Below the header */
-    left: 0;
-    background-color: #00509e;
-    z-index: 1000; /* Ensure it is on top of other elements */
-    border: 2px solid red; /* Temporary border for debugging */
-}
-
-    .nav-links a {
-        border-top: 1px solid #fff;
-        padding: 10px 20px;
-    }
-
-    .hamburger {
-        display: block; /* Show hamburger menu icon */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    h1 {
-        font-size: 1.5em;
-    }
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px; /* Below the header */
-        left: 0;
-        background-color: #00509e;
-        border: 2px solid red; /* Temporary border for debugging */
-        z-index: 1000; /* Ensure it is on top of other elements */
-    }
-    nav a {
-        padding: 6px 10px;
-        margin: 2px;
-    }
-
-    #publications-list li {
-        font-size: 1em;
-        padding: 10px;
-    }
-
-    .card-section .card {
-        width: calc(100% - 20px);
-    }
-   .hamburger {
-        display: block; /* Show hamburger menu icon */
-    }
 }
