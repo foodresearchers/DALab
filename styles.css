@@ -82,7 +82,7 @@ header {
         font-size: 1.5em;
     }
 
-    nav a {
+    .nav-links a {
         padding: 6px 10px;
         margin: 2px;
     }
@@ -368,4 +368,55 @@ footer a:hover {
 
 .update-info-button:hover {
     background-color: #00d2ff;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #00509e;
+        z-index: 1000;
+    }
+
+    .nav-links a {
+        padding: 10px 20px;
+        border-top: 1px solid #fff;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .nav-links a {
+        padding: 6px 10px;
+        margin: 2px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #00509e;
+    }
+
+    .hamburger {
+        display: block;
+    }
 }
