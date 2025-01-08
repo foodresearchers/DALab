@@ -33,8 +33,7 @@ header .slogan {
 header nav {
     margin-top: 10px;
     display: flex;
-    justify-content: flex-start; /* Align to the left */
-    padding-left: 20px;
+    justify-content: center; /* Center-align the nav */
 }
 
 header nav a {
