@@ -322,6 +322,24 @@ footer a:hover {
 .update-info-button:hover {
     background-color: #00d2ff;
 }
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+}
+
 
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 768px) {
@@ -342,6 +360,23 @@ footer a:hover {
        .card-section .card {
         width: calc(50% - 20px);
     }
+    .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    background-color: #00509e;
+}
+
+.nav-links a {
+    padding: 10px 20px;
+    border-top: 1px solid #fff;
+}
+
+.hamburger {
+    display: block;
+}
 }
 
 @media screen and (max-width: 480px) {
