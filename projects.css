@@ -28,7 +28,7 @@ header h1 {
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Align items properly in the desktop version */
+    justify-content: center; /* Center the nav container */
     padding: 0 20px;
     position: relative; /* Ensure it stays within header */
 }
