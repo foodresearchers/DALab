@@ -1,11 +1,12 @@
 // Function to toggle the mobile menu
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
+    // Toggle the display property between 'flex' and 'none'
     navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Hero image transitions (for homepage)
+    // Check if there are hero images on the homepage
     if (document.querySelector('.hero-image')) {
         let slideIndex = 0;
         const slides = document.querySelectorAll(".hero-image");
