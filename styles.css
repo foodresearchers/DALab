@@ -337,26 +337,24 @@ footer a:hover {
 
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 768px) {
-    .nav-container {
-        justify-content: space-between; /* Align items for mobile */
-    }
-
     .nav-links {
-        display: none;
+        display: none; /* Hide the nav links by default */
         flex-direction: column;
+        width: 100%; /* Full width */
         position: absolute;
-        top: 60px;
-        width: 100%;
+        top: 60px; /* Below the header */
+        left: 0;
         background-color: #00509e;
+        border: 2px solid red; /* Temporary border for debugging */
     }
 
     .nav-links a {
-        padding: 10px 20px;
         border-top: 1px solid #fff;
+        padding: 10px 20px;
     }
 
     .hamburger {
-        display: block;
+        display: block; /* Show hamburger menu icon */
     }
 }
 
