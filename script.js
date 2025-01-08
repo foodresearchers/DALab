@@ -32,6 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
             showSlide(slideIndex);
         }
 
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+    }
+
+
         // Add event listeners to dots for changing slides
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => showSlide(index));
