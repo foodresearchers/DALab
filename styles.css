@@ -33,7 +33,7 @@ header .slogan {
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Adjusted to justify content between left and right */
     padding: 0; /* Remove padding to make it seamless */
     position: relative;
 }
@@ -44,7 +44,8 @@ header .slogan {
     cursor: pointer;
     position: absolute;
     left: 10px; /* Position it to the left corner */
-    top: 10px; /* Move it above within the header */
+    top: 50%; /* Center it vertically */
+    transform: translateY(-50%); /* Adjust for centering */
 }
 
 .nav-links {
@@ -367,7 +368,7 @@ footer a:hover {
         margin-top: 0; /* Remove margin-top */
         position: absolute; /* Position within header */
         left: 10px; /* Position it in the left corner */
-        top: 10px; /* Move it above within the header */
+        top: 15px; /* Move it above within the header */
     }
 }
 
@@ -395,6 +396,6 @@ footer a:hover {
         margin-top: 0; /* Remove margin-top */
         position: absolute; /* Position within header */
         left: 10px; /* Position it in the left corner */
-        top: 10px; /* Move it above within the header */
+        top: 15px; /* Move it above within the header */
     }
 }
