@@ -44,7 +44,7 @@ header .slogan {
     cursor: pointer;
     position: absolute;
     left: 20px; /* Position it to the left */
-    top: 80px; /* Lower it to ensure it is fully visible */
+    top: 50%; /* Center it vertically */
     transform: translateY(-50%); /* Adjust for centering */
 }
 
@@ -348,7 +348,7 @@ footer a:hover {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: calc(100% + 10px); /* Slightly lower to avoid cutting off */
+        top: 60px; /* Align the menu below the header */
         left: 0;
         background-color: #00509e;
         z-index: 1000;
@@ -368,7 +368,7 @@ footer a:hover {
         margin-top: 0; /* Remove margin-top */
         position: absolute; /* Position within header */
         left: 20px; /* Position it to the left */
-        top: 90px; /* Lower it further to ensure full visibility */
+        top: 20px; /* Lower it slightly more to ensure visibility */
         transform: translateY(-50%); /* Adjust for centering */
     }
 }
@@ -387,7 +387,7 @@ footer a:hover {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: calc(100% + 10px); /* Slightly lower to avoid cutting off */
+        top: 60px; /* Align the menu below the header */
         left: 0;
         background-color: #00509e;
     }
@@ -397,7 +397,7 @@ footer a:hover {
         margin-top: 0; /* Remove margin-top */
         position: absolute; /* Position within header */
         left: 20px; /* Position it to the left */
-        top: 90px; /* Lower it further to ensure full visibility */
+        top: 20px; /* Lower it slightly more to ensure visibility */
         transform: translateY(-50%); /* Adjust for centering */
     }
 }
