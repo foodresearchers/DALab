@@ -1,4 +1,3 @@
-// Existing content from script.js
 // Function to toggle the mobile menu
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
@@ -65,22 +64,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Notices logic from notices.js
-    fetch('notices.txt')
-    .then(response => response.text())
-    .then(data => {
-        const notices = data.split('\n').filter(line => line.trim() !== '');
-        const noticeList = document.getElementById('notice-list');
+    const noticeList = document.getElementById('notice-list');
+    if (noticeList) {
+        fetch('notices.txt')
+        .then(response => response.text())
+        .then(data => {
+            const notices = data.split('\n').filter(line => line.trim() !== '');
 
-        // Reverse the order to display newest notices first
-        notices.reverse().forEach((notice, index) => {
-            // Remove the leading number and any leading spaces
-            const cleanNotice = notice.replace(/^\d+\.\s*/, '');
-            const listItem = document.createElement('li');
-            listItem.textContent = cleanNotice;
-            noticeList.appendChild(listItem);
-        });
-    })
-    .catch(error => console.error('Error fetching the notices file:', error));
+            // Reverse the order to display newest notices first
+            notices.reverse().forEach((notice, index) => {
+                // Remove the leading number and any leading spaces
+                const cleanNotice = notice.replace(/^\d+\.\s*/, '');
+                const listItem = document.createElement('li');
+                listItem.textContent = cleanNotice;
+                noticeList.appendChild(listItem);
+            });
+        })
+        .catch(error => console.error('Error fetching the notices file:', error));
+    }
 
     // Researchers loading logic (for researchers page)
     if (document.getElementById('current-researchers') || document.getElementById('former-researchers')) {
