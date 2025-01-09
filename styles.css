@@ -360,6 +360,7 @@ footer a:hover {
 
     .hamburger {
         display: block; /* Show hamburger menu icon */
+        margin-top: 20px; /* This line ensures the hamburger menu is positioned below the header ribbon */
     }
 }
 
@@ -384,5 +385,6 @@ footer a:hover {
 
     .hamburger {
         display: block; /* Show hamburger menu icon */
+        margin-top: 20px; /* This line ensures the hamburger menu is positioned below the header ribbon */
     }
 }
