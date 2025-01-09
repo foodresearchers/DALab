@@ -1,4 +1,25 @@
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    // Remove any inline display styles first
+    navLinks.style.removeProperty('display');
+    
+    const computedDisplay = window.getComputedStyle(navLinks).display;
+    console.log("Computed display style before toggle:", computedDisplay);
+
+    if (computedDisplay === 'flex') {
+        navLinks.style.display = 'none';
+        console.log("Nav links hidden");
+    } else {
+        navLinks.style.display = 'flex';
+        console.log("Nav links shown");
+    }
+
+    // Log the final computed display style
+    console.log("Computed display style after toggle:", window.getComputedStyle(navLinks).display);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Existing logic for projects.js
     fetch('projects/projects.csv')
         .then(response => response.text())
         .then(data => {
@@ -93,13 +114,10 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         })
         .catch(error => console.error('Error fetching project data:', error));
-});
 
-function handleImageError(image) {
-    if (!image.src.endsWith('default.jpg')) {
-        image.src = 'projects/images/default.jpg';
-    } else {
-        console.error('Default image not found, breaking loop.');
-        image.src = ''; // Ensure the loop breaks by setting src to empty
+    // Attach the toggleMenu function to the hamburger icon
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
     }
-}
+});
