@@ -28,7 +28,7 @@ header h1 {
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the nav container */
+    justify-content: flex-start; /* Align to the left */
     padding: 0 20px;
     position: relative; /* Ensure it stays within header */
 }
@@ -37,6 +37,7 @@ header h1 {
     font-size: 2em;
     cursor: pointer;
     display: none; /* Hide by default */
+    margin-right: auto; /* Align to the left */
 }
 
 .nav-links {
@@ -81,6 +82,7 @@ header nav a:hover {
 
     .hamburger {
         display: block; /* Show hamburger menu icon */
+        margin-right: 0; /* Ensure it stays aligned to the left */
     }
 }
 
