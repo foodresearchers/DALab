@@ -1,5 +1,8 @@
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
+    // Remove any inline display styles first
+    navLinks.style.removeProperty('display');
+    
     const computedDisplay = window.getComputedStyle(navLinks).display;
     console.log("Computed display style before toggle:", computedDisplay);
 
