@@ -10,7 +10,7 @@ body {
 /* Header Section */
 header {
     background: #00509e;
-    padding: 20px 0;
+    padding: 10px 0; /* Reduced padding to make the header more compact */
     text-align: center;
     position: sticky;
     top: 0;
@@ -20,7 +20,7 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 2em; /* Reduced font size for a more compact header */
     color: #fff;
 }
 
@@ -43,8 +43,9 @@ header .slogan {
     font-size: 2em;
     cursor: pointer;
     position: absolute;
-    left: 20px; /* Position it to the left */
-    top: 15px; /* Position it within the header */
+    left: 10px; /* Position it to the left corner */
+    top: 50%; /* Center it vertically */
+    transform: translateY(-50%); /* Adjust for centering */
 }
 
 .nav-links {
@@ -347,7 +348,7 @@ footer a:hover {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px; /* Align the menu below the header */
+        top: 100%; /* Align the menu directly below the header */
         left: 0;
         background-color: #00509e;
         z-index: 1000;
@@ -366,8 +367,9 @@ footer a:hover {
         display: block; /* Show hamburger menu icon */
         margin-top: 0; /* Remove margin-top */
         position: absolute; /* Position within header */
-        left: 20px; /* Position it to the left */
-        top: 20px; /* Position it properly within the header */
+        left: 10px; /* Position it in the left corner */
+        top: 50%; /* Center it vertically */
+        transform: translateY(-50%); /* Adjust for centering */
     }
 }
 
@@ -385,7 +387,7 @@ footer a:hover {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px; /* Align the menu below the header */
+        top: 100%; /* Align the menu directly below the header */
         left: 0;
         background-color: #00509e;
     }
@@ -394,7 +396,8 @@ footer a:hover {
         display: block; /* Show hamburger menu icon */
         margin-top: 0; /* Remove margin-top */
         position: absolute; /* Position within header */
-        left: 20px; /* Position it to the left */
-        top: 20px; /* Position it properly within the header */
+        left: 10px; /* Position it in the left corner */
+        top: 50%; /* Center it vertically */
+        transform: translateY(-50%); /* Adjust for centering */
     }
 }
