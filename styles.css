@@ -41,6 +41,7 @@ header .slogan {
     display: none;
     font-size: 2em;
     cursor: pointer;
+    margin-top: 20px; /* This line ensures the hamburger menu is positioned below the header ribbon */
 }
 
 .nav-links {
