@@ -2,6 +2,7 @@
 // Function to toggle the mobile menu
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
+    // Remove any inline display styles first
     navLinks.style.removeProperty('display');
     
     const computedDisplay = window.getComputedStyle(navLinks).display;
