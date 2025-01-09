@@ -28,8 +28,8 @@ header h1 {
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align to the left */
-    padding: 0 20px;
+    justify-content: center; /* Align to the center */
+    padding: 10px 20px;
     position: relative; /* Ensure it stays within header */
 }
 
