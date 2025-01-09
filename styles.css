@@ -34,7 +34,7 @@ header .slogan {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 20px;
+    padding: 0; /* Remove padding to make it seamless */
     position: relative;
 }
 
@@ -47,6 +47,7 @@ header .slogan {
 .nav-links {
     display: flex;
     justify-content: center;
+    margin: 0; /* Remove margin to make it seamless */
 }
 
 header nav a {
