@@ -348,7 +348,7 @@ footer a:hover {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 100%; /* Align the menu below the header */
+        top: calc(100% + 10px); /* Slightly lower to avoid cutting off */
         left: 0;
         background-color: #00509e;
         z-index: 1000;
@@ -387,7 +387,7 @@ footer a:hover {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 100%; /* Align the menu below the header */
+        top: calc(100% + 10px); /* Slightly lower to avoid cutting off */
         left: 0;
         background-color: #00509e;
     }
