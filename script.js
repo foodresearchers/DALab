@@ -1,6 +1,7 @@
+// Existing content from script.js
+// Function to toggle the mobile menu
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
-    // Remove any inline display styles first
     navLinks.style.removeProperty('display');
     
     const computedDisplay = window.getComputedStyle(navLinks).display;
@@ -19,7 +20,7 @@ function toggleMenu() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if there are hero images on the homepage
+    // Existing logic for hero images and mobile menu toggle
     if (document.querySelector('.hero-image')) {
         let slideIndex = 0;
         const slides = document.querySelectorAll(".hero-image");
@@ -61,6 +62,24 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hamburger) {
         hamburger.addEventListener('click', toggleMenu);
     }
+
+    // Notices logic from notices.js
+    fetch('notices.txt')
+    .then(response => response.text())
+    .then(data => {
+        const notices = data.split('\n').filter(line => line.trim() !== '');
+        const noticeList = document.getElementById('notice-list');
+
+        // Reverse the order to display newest notices first
+        notices.reverse().forEach((notice, index) => {
+            // Remove the leading number and any leading spaces
+            const cleanNotice = notice.replace(/^\d+\.\s*/, '');
+            const listItem = document.createElement('li');
+            listItem.textContent = cleanNotice;
+            noticeList.appendChild(listItem);
+        });
+    })
+    .catch(error => console.error('Error fetching the notices file:', error));
 
     // Researchers loading logic (for researchers page)
     if (document.getElementById('current-researchers') || document.getElementById('former-researchers')) {
