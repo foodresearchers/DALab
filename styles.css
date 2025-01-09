@@ -35,18 +35,13 @@ header .slogan {
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
-    position: relative; /* Ensure it stays within header */
+    position: relative;
 }
 
 .hamburger {
-    display: none; /* Hide by default */
+    display: none;
     font-size: 2em;
     cursor: pointer;
-    margin-top: 20px; /* Ensure the hamburger menu is below the header ribbon */
-    position: absolute; /* Position the hamburger menu */
-    top: 100%; /* Place it below the nav container */
-    left: 50%; /* Center it horizontally */
-    transform: translateX(-50%); /* Adjust for centering */
 }
 
 .nav-links {
@@ -365,11 +360,10 @@ footer a:hover {
 
     .hamburger {
         display: block; /* Show hamburger menu icon */
-        margin-top: 20px; /* Ensure the hamburger menu is below the header ribbon */
-        position: absolute; /* Position the hamburger menu */
-        top: 100%; /* Place it below the nav container */
-        left: 50%; /* Center it horizontally */
-        transform: translateX(-50%); /* Adjust for centering */
+        margin-top: 0; /* Remove margin-top */
+        position: absolute;
+        left: 20px; /* Position it to the left */
+        top: 20px; /* Align it properly within the header */
     }
 }
 
@@ -394,10 +388,9 @@ footer a:hover {
 
     .hamburger {
         display: block; /* Show hamburger menu icon */
-        margin-top: 20px; /* Ensure the hamburger menu is below the header ribbon */
-        position: absolute; /* Position the hamburger menu */
-        top: 100%; /* Place it below the nav container */
-        left: 50%; /* Center it horizontally */
-        transform: translateX(-50%); /* Adjust for centering */
+        margin-top: 0; /* Remove margin-top */
+        position: absolute;
+        left: 20px; /* Position it to the left */
+        top: 20px; /* Align it properly within the header */
     }
 }
