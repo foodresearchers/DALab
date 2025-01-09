@@ -359,7 +359,6 @@ footer a:hover {
 
     .hamburger {
         display: block; /* Show hamburger menu icon */
-        margin-top: 10px; /* Add margin to separate from the nav links */
     }
 }
 
@@ -384,6 +383,5 @@ footer a:hover {
 
     .hamburger {
         display: block; /* Show hamburger menu icon */
-        margin-top: 10px; /* Add margin to separate from the nav links */
     }
 }
