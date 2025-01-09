@@ -33,7 +33,7 @@ header .slogan {
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align to the left */
+    justify-content: center;
     padding: 10px 20px;
 }
 
@@ -41,7 +41,6 @@ header .slogan {
     display: none;
     font-size: 2em;
     cursor: pointer;
-    margin-right: auto; /* Align to the left */
 }
 
 .nav-links {
@@ -65,58 +64,6 @@ header nav a:hover {
     background: #fff;
     border-color: #00509e;
     color: #00509e;
-}
-
-/* Media Queries for Responsive Design */
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none; /* Hide the nav links by default */
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: #00509e;
-        z-index: 1000;
-    }
-
-    .nav-container {
-        justify-content: space-between;
-    }
-
-    .nav-links a {
-        border-top: 1px solid #fff;
-        padding: 10px 20px;
-    }
-
-    .hamburger {
-        display: block; /* Show hamburger menu icon */
-        margin-right: 0; /* Ensure it stays aligned to the left */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    h1 {
-        font-size: 1.5em;
-    }
-
-    nav a {
-        padding: 6px 10px;
-        margin: 2px;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: #00509e;
-    }
-
-    .hamburger {
-        display: block; /* Show hamburger menu icon */
-    }
 }
 
 /* Hero Section */
@@ -412,7 +359,6 @@ footer a:hover {
 
     .hamburger {
         display: block; /* Show hamburger menu icon */
-        margin-right: 0; /* Ensure it stays aligned to the left */
     }
 }
 
