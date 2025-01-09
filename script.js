@@ -1,16 +1,18 @@
-// Function to toggle the mobile menu
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
-    console.log("Toggle menu clicked"); // Debugging statement
-    console.log("Current display style:", navLinks.style.display); // Debugging statement
-    // Toggle the display property between 'flex' and 'none'
-    if (navLinks.style.display === 'flex') {
+    const computedDisplay = window.getComputedStyle(navLinks).display;
+    console.log("Computed display style before toggle:", computedDisplay);
+
+    if (computedDisplay === 'flex') {
         navLinks.style.display = 'none';
-        console.log("Nav links hidden"); // Debugging statement
+        console.log("Nav links hidden");
     } else {
         navLinks.style.display = 'flex';
-        console.log("Nav links shown"); // Debugging statement
+        console.log("Nav links shown");
     }
+
+    // Log the final computed display style
+    console.log("Computed display style after toggle:", window.getComputedStyle(navLinks).display);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
