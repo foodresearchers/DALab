@@ -42,6 +42,10 @@ header .slogan {
     display: none;
     font-size: 2em;
     cursor: pointer;
+    position: absolute;
+    left: 20px; /* Position it to the left */
+    top: 50%; /* Center it vertically */
+    transform: translateY(-50%); /* Adjust for centering */
 }
 
 .nav-links {
@@ -344,7 +348,7 @@ footer a:hover {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px;
+        top: 100%; /* Align the menu below the header */
         left: 0;
         background-color: #00509e;
         z-index: 1000;
@@ -362,9 +366,10 @@ footer a:hover {
     .hamburger {
         display: block; /* Show hamburger menu icon */
         margin-top: 0; /* Remove margin-top */
-        position: absolute;
+        position: absolute; /* Position within header */
         left: 20px; /* Position it to the left */
-        top: 20px; /* Align it properly within the header */
+        top: 50%; /* Center it vertically */
+        transform: translateY(-50%); /* Adjust for centering */
     }
 }
 
@@ -382,7 +387,7 @@ footer a:hover {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px;
+        top: 100%; /* Align the menu below the header */
         left: 0;
         background-color: #00509e;
     }
@@ -390,8 +395,9 @@ footer a:hover {
     .hamburger {
         display: block; /* Show hamburger menu icon */
         margin-top: 0; /* Remove margin-top */
-        position: absolute;
+        position: absolute; /* Position within header */
         left: 20px; /* Position it to the left */
-        top: 20px; /* Align it properly within the header */
+        top: 50%; /* Center it vertically */
+        transform: translateY(-50%); /* Adjust for centering */
     }
 }
